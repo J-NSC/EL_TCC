@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "questionName": "Capitais Brasileiras",
+      "question": "Qual é a capital do Brasil?",
+      "answers": ["Brasília", "São Paulo", "Rio de Janeiro", "Salvador"],
+      "correctAnswer": 1
+    },
+    {
+      "questionName": "Rios Brasileiros",
+      "question": "Qual é o maior rio do Brasil?",
+      "answers": ["Amazonas", "São Francisco", "Tietê", "Paraná"],
+      "correctAnswer": 1
+    },
+    {
+      "questionName": "Estados Brasileiros",
+      "question": "Qual é o estado mais populoso do Brasil?",
+      "answers": ["São Paulo", "Minas Gerais", "Rio de Janeiro", "Bahia"],
+      "correctAnswer": 1
+    },
+    {
+      "questionName": "Biomas Brasileiros",
+      "question": "Qual é o bioma predominante na região Amazônica?",
+      "answers": ["Cerrado", "Pampa", "Caatinga", "Amazônia"],
+      "correctAnswer": 3
+    },
+    {
+      "questionName": "Pontos Turísticos",
+      "question": "Qual é a famosa estátua localizada no Rio de Janeiro?",
+      "answers": ["Cristo Redentor", "Estátua da Liberdade", "Estátua de Colombo", "Estátua da Justiça"],
+      "correctAnswer": 1
+    }
+  ]
+}

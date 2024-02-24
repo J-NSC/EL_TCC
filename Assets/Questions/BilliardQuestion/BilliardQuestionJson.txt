@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "questionName": "Localizacao de Santarem",
+      "question": "Em qual direçao está localizado Sanatarém?",
+      "correctAnswer": "Norte"
+    },
+    {
+      "questionName": "Localizacao de São Paulo",
+      "question": "Em qual direçao está localizado São Paulo?",
+      "correctAnswer": "Sudeste"
+    },
+     {
+        "questionName": "Comunidades Indígenas",
+        "question": "Qual dessas regiões abriga mais comunidades indígenas, região noroeste ou Sudoeste?",
+        "correctAnswer": "Noroeste"
+      },
+      {
+        "questionName": "Maiores Estados",
+        "question": "Qual é a região que possui os dois maiores estados do Brasil em extensão territorial?",
+        "correctAnswer": "Norte"
+      },
+      {
+        "questionName": "Número de Estados",
+        "question": "Em que região do Brasil fica o maior número de estados?",
+        "correctAnswer": "Nordeste"
+      },
+      {
+        "questionName": "Fronteira com Paraguai e Argentina",
+        "question": "Qual destas regiões geográficas tem estados que fazem fronteira com Paraguai e Argentina, Noroeste ou Sudoeste?",
+        "correctAnswer": "Sudoeste"
+      },
+      {
+        "questionName": "Bioma Pampa",
+        "question": "O Pampa é um bioma predominante de que região do país?",
+        "correctAnswer": "Sul"
+      },
+      {
+        "questionName": "Região mais rica",
+        "question": "Qual é a região mais rica do Brasil?",
+        "correctAnswer": "Sudeste"
+      }
+  ]
+}
