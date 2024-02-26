@@ -11,14 +11,18 @@ public class Ball : MonoBehaviour
     public bool isDesroyed = false;
     bool isMoving = false;
     [SerializeField] float time = 0.3f;
-
+    
     Rigidbody rb;
 
     QuestionManagerBilliard questionManagerBilliard;
 
+    public delegate void EnebledBallHandle(bool msg);
+    public static event EnebledBallHandle enebledBall;
+    
     void OnEnable()
     {
         Stick.BallAppliedForce += OnBallAppliedForce;
+        enebledBall?.Invoke(true);
     }
 
     void OnDisable()
@@ -30,7 +34,6 @@ public class Ball : MonoBehaviour
     {
         questionManagerBilliard = FindObjectOfType<QuestionManagerBilliard>();
         rb = GetComponent<Rigidbody>();
-        Debug.Log(isMoving);
     }
 
  
@@ -46,9 +49,8 @@ public class Ball : MonoBehaviour
         
         if(isMoving)
         {
-            if ((rb.velocity.magnitude == 0))
+            if ((rb.velocity.magnitude <= .9f))
             {
-                Debug.Log(rb.velocity.magnitude);
                 ResetBall(.3f);
                 isMoving = false;
             }

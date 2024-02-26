@@ -8,9 +8,12 @@ public class EventManager : MonoBehaviour
     Ball ball;
     GameSetup gameSetup;
     Stick stick;
+    [SerializeField] GameObject objectStick; 
 
     QuestionManagerBilliard questionManagerBilliard;
     HUDManager hudManager;
+
+    [SerializeField] float time;
 
     void Awake()
     {
@@ -25,28 +28,29 @@ public class EventManager : MonoBehaviour
 
     void OnEnable()
     {
+        Ball.enebledBall += stick.OnEnabledStick;
         questionManagerBilliard.questionGenerated += hudManager.OnQuestionGeneratedBilliard;
+        HUDManager.activetedStick += stick.OnEnabledStick;
     }
 
-    void OnDisable()
-    {
-        questionManagerBilliard.questionGenerated -= hudManager.OnQuestionGeneratedBilliard;
-    }
 
     void Update()
     {
         ball = FindObjectOfType<Ball>();
         if (ball.isDesroyed)
         {
-            Invoke("InvikeDestroyBall", .5f);
+            Invoke("InvokeDestroyBall", .5f);
             Invoke("InvokeResetStick", .5f);
+            Ball.enebledBall += stick.OnEnabledStick;
             ball.isDesroyed = false;
         }
+
     }
 
-    void InvikeDestroyBall()
+    void InvokeDestroyBall()
     {
         gameSetup.OnBallDestroye();
+        Ball.enebledBall -= stick.OnEnabledStick;
     }
 
     void InvokeResetStick()

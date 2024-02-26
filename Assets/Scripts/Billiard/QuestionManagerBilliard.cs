@@ -9,8 +9,12 @@ public class QuestionManagerBilliard : MonoBehaviour
     public List<QuestionsBilliard> QnB;
 
     public delegate void QuestionGeneratedHandle(string msg);
-
     public event QuestionGeneratedHandle questionGenerated;
+
+    public delegate void ValidatedQuestionHandle(bool msg);
+    public static event ValidatedQuestionHandle validededQuestion;
+
+
     
     int currentQuestion = 0;
 
@@ -22,18 +26,9 @@ public class QuestionManagerBilliard : MonoBehaviour
 
     public void OnQuestChecked(string msg)
     {
-        // if (QnB[currentQuestion].correctAnswer.ToLower() == msg.ToLower())
-        // {
-        //     Debug.Log("acertou misseravel");
-        //     QnB.RemoveAt(currentQuestion);
-        //     setRandonQuestion();
-        // }
-        // else
-        // {
-        //     Debug.Log("errou");
-        //     QnB.RemoveAt(currentQuestion);
-        //     setRandonQuestion();
-        // }
+        validededQuestion?.Invoke(QnB[currentQuestion].correctAnswer.ToLower() == msg.ToLower() ? true: false );
+        QnB.RemoveAt(currentQuestion);
+        setRandonQuestion();
     }
     
 
