@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef6c521417add84999cf3c3528aacd0, type: 3}
+  m_Name: Lago de Furnas
+  m_EditorClassIdentifier: 
+  nameCard: Lago de Furnas
+  sprite: {fileID: 21300000, guid: 73d99455c768fa34a82c65f3303b3f9f, type: 3}
+  description: "Criado pela represa de Furnas, o Lago de Furnas \xE9 o maior lago
+    artificial do Brasil. Rodeado por exuberante vegeta\xE7\xE3o, suas \xE1guas proporcionam
+    oportunidades para esportes aqu\xE1ticos, passeios de barco e relaxamento em
+    uma paisagem encantadora."

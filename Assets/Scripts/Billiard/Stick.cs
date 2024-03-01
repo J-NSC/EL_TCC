@@ -107,8 +107,7 @@ public class Stick : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.up, out hit, float.PositiveInfinity, ~layerMask))
         {
-            GameObject colliderName = hit.collider.gameObject;
-            Debug.Log(colliderName.name);
+            // GameObject colliderName = hit.collider.gameObject;
             return hit.point;
         }
         return null;

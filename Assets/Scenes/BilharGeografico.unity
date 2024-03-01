@@ -1412,8 +1412,8 @@ MonoBehaviour:
   emojiFeedBack: {fileID: 641601872}
   textFeedBack: {fileID: 2133393599}
   messageFeedBack:
-  - "TU \xC9 O BICH\xC3O MESMO EM"
-  - "KKKKKKKKK T\xC1 DOIDO, TU \xC9 MUITO BURRO KKKKKKKK"
+  - Certo
+  - Errado
 --- !u!4 &559403825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3522716216935625030, guid: c2488da4f35cfea4c848ba233449ec03, type: 3}
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3551,7 +3551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1474357336
 RectTransform:
   m_ObjectHideFlags: 0

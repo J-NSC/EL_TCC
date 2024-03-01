@@ -16,6 +16,7 @@ public class BiliardCreteSciptObject : MonoBehaviour
         if (questionsFile != null)
         {
             string json = questionsFile.text;
+            Debug.Log(json);
 
             BilliardQuestionsList questionsList = JsonUtility.FromJson<BilliardQuestionsList>(json);
             

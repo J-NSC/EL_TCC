@@ -1,0 +1,49 @@
+{
+  "locations": [
+    {
+      "name": "Alter do Chão",
+      "description": "Conhecida como a 'Caribe da Amazônia', Alter do Chão é famosa por suas praias de água doce, especialmente a Praia do Amor. Situada às margens do Rio Tapajós, a região oferece uma beleza natural deslumbrante e é um destino popular para quem busca tranquilidade e contato com a natureza.",
+      "path": "Images/IMGMemoryGame/alter-do-chao"
+    },
+    {
+      "name": "Baía de Sancho",
+      "description": "Eleita diversas vezes como uma das praias mais bonitas do mundo, a Baía de Sancho é parte do arquipélago de Fernando de Noronha. Caracterizada por suas águas cristalinas, formações rochosas impressionantes e rica vida marinha, é um paraíso para os amantes do mergulho.",
+      "path": "Images/IMGMemoryGame/baia-de-sancho"
+    },
+    {
+      "name": "Cristo Redentor",
+      "description": "Um ícone internacionalmente reconhecido, o Cristo Redentor é uma colossal estátua de Jesus Cristo situada no topo do Morro do Corcovado. Oferece uma vista panorâmica espetacular da cidade do Rio de Janeiro, sendo um dos pontos turísticos mais emblemáticos do Brasil.",
+      "path": "Images/IMGMemoryGame/cristo-redentor"
+    },
+    {
+      "name": "Elevador Lacerda",
+      "description": "Inaugurado em 1873, o Elevador Lacerda é um marco histórico de Salvador, conectando a Cidade Baixa à Cidade Alta. Oferece vistas deslumbrantes da Baía de Todos os Santos e é uma atração imperdível para os visitantes que desejam explorar a rica história da cidade.",
+      "path": "Images/IMGMemoryGame/elevador-lacerda"
+    },
+    {
+      "name": "Lago de Furnas",
+      "description": "Criado pela represa de Furnas, o Lago de Furnas é o maior lago artificial do Brasil. Rodeado por exuberante vegetação, suas águas proporcionam oportunidades para esportes aquáticos, passeios de barco e relaxamento em uma paisagem encantadora.",
+      "path": "Images/IMGMemoryGame/lago-de-furnas"
+    },
+    {
+      "name": "Lençóis Maranhenses",
+      "description": "Uma paisagem surreal de dunas intercaladas por lagoas de água cristalina, os Lençóis Maranhenses são uma maravilha natural única. Durante a temporada de chuvas, as lagoas se formam entre as dunas, criando um cenário deslumbrante e inesquecível.",
+      "path": "Images/IMGMemoryGame/lencois-maranhenses"
+    },
+    {
+      "name": "Pão de Açúcar",
+      "description": "Uma das mais famosas formações rochosas do mundo, o Pão de Açúcar oferece vistas espetaculares da cidade do Rio de Janeiro. Acessível por meio de um teleférico, é um local icônico para apreciar o pôr do sol sobre a Baía de Guanabara.",
+      "path": "Images/IMGMemoryGame/pao-de-acucar"
+    },
+    {
+      "name": "Parque do Ibirapuera",
+      "description": "Considerado o 'pulmão verde' de São Paulo, o Parque do Ibirapuera é um extenso parque urbano que abriga museus, espaços culturais, lagos e áreas de lazer. É um lugar popular para atividades ao ar livre, eventos culturais e caminhadas.",
+      "path": "Images/IMGMemoryGame/parque-do-ibirapuera"
+    },
+    {
+      "name": "Pelourinho",
+      "description": "O Pelourinho é o centro histórico de Salvador, conhecido por suas coloridas casas coloniais, igrejas barrocas e ruas de paralelepípedos. Patrimônio Mundial da UNESCO, o bairro preserva a arquitetura e a cultura do período colonial, sendo um destino imperdível para quem visita Salvador.",
+      "path": "Images/IMGMemoryGame/pelourinho"
+    }
+  ]
+}
