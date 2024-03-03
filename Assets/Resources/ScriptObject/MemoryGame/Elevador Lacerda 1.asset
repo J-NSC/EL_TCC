@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef6c521417add84999cf3c3528aacd0, type: 3}
+  m_Name: Elevador Lacerda 1
+  m_EditorClassIdentifier: 
+  nameCard: Elevador Lacerda 1
+  pairName: Elevador Lacerda
+  sprite: {fileID: 21300000, guid: b4a24c765962a3b4aa73c7f9aec1af06, type: 3}
+  description: "Inaugurado em 1873, o Elevador Lacerda \xE9 um marco hist\xF3rico
+    de Salvador, conectando a Cidade Baixa \xE0 Cidade Alta. Oferece vistas deslumbrantes
+    da Ba\xEDa de Todos os Santos e \xE9 uma atra\xE7\xE3o imperd\xEDvel para os
+    visitantes que desejam explorar a rica hist\xF3ria da cidade."

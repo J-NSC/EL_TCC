@@ -9,6 +9,7 @@ TagManager:
   - Card
   - Ball
   - Cacapa
+  - InfoBox
   layers:
   - Default
   - TransparentFX

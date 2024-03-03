@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pelourinho
   m_EditorClassIdentifier: 
   nameCard: Pelourinho
+  pairName: Pelourinho 1
   sprite: {fileID: 21300000, guid: 38a1409ad95a0d2458b68e6b37d799b5, type: 3}
   description: "O Pelourinho \xE9 o centro hist\xF3rico de Salvador, conhecido por
     suas coloridas casas coloniais, igrejas barrocas e ruas de paralelep\xEDpedos.

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Elevador Lacerda
   m_EditorClassIdentifier: 
   nameCard: Elevador Lacerda
+  pairName: Elevador Lacerda 1
   sprite: {fileID: 21300000, guid: b4a24c765962a3b4aa73c7f9aec1af06, type: 3}
   description: "Inaugurado em 1873, o Elevador Lacerda \xE9 um marco hist\xF3rico
     de Salvador, conectando a Cidade Baixa \xE0 Cidade Alta. Oferece vistas deslumbrantes

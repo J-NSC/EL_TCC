@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef6c521417add84999cf3c3528aacd0, type: 3}
+  m_Name: "P\xE3o de A\xE7\xFAcar 1"
+  m_EditorClassIdentifier: 
+  nameCard: Pao de Acucar 1
+  pairName: Pao de Acucar
+  sprite: {fileID: 21300000, guid: 49d7c0fed581c1c4d98f0bdf173fba1f, type: 3}
+  description: "Uma das mais famosas forma\xE7\xF5es rochosas do mundo, o P\xE3o
+    de A\xE7\xFAcar oferece vistas espetaculares da cidade do Rio de Janeiro. Acess\xEDvel
+    por meio de um telef\xE9rico, \xE9 um local ic\xF4nico para apreciar o p\xF4r
+    do sol sobre a Ba\xEDa de Guanabara."

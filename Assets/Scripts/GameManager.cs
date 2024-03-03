@@ -7,114 +7,110 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("POOL")]
-    [SerializeField] GameObject ballPrefab;
-    [SerializeField] Transform cueBallPosition;
+	// public UIController uiController;
 
-    GameState gameState;
+	GameState gameState;
 
-    public CardSelectionState cardSelectionState;
-    public PairSelectionState pairSelectionState;
-    public MemorizeCardsState memorizeCardsState;
-    public MatchingCardsState matchingCardsState;
-    public EndGameState endGameState;
-    public PauseGameState pauseGameState;
+	public CardSelectionState cardSelectionState;
+	public PairSelectionState pairSelectionState;
+	public MemorizeCardsState memorizeCardsState;
+	public MatchingCardsState matchingCardsState;
+	public EndGameState endGameState;
+	public PauseGameState pauseGameState;
 
-    public GameObject[] selectedCards;
+	public GameObject[] selectedCards;
 
-    int cardCount;
-    int movesCount;
-    
-    public static GameManager inst;
-    
-    public int CardCount
-    {
-        set { cardCount = value;}
-        get { return cardCount;}
+	public int cardCount = 2;
+	int movesCount;
 
-    }
+	public int CardCount
+	{
+		set
+		{
+			cardCount = value;
+		}
+		get
+		{
+			return cardCount;
+		}
+	}
 
-    void Awake() {
-        if(inst == null)
-            inst = this;
+	// Start is called before the first frame update
+	void Start()
+	{
+		movesCount = 0;
+		selectedCards = new GameObject[2];
+		selectedCards[0] = null;
+		selectedCards[1] = null;
 
-        
-    }
+		InitStates();
+	}
 
-    void Start()
-    {
-        movesCount = 0;
-        selectedCards = new GameObject[2];
-        selectedCards[0] = null;
-        selectedCards[1] = null;
+	void Update()
+	{
+		gameState.UpdateAction();
 
-        InitStates();
-    }
+		if (cardCount <= 0)
+		{
+			TransitionState(endGameState);
+		}
+	}
 
-    void Update()
-    {
-        gameState.UpdateAction();
+	void InitStates()
+	{
+		cardSelectionState = new CardSelectionState(this);
+		pairSelectionState = new PairSelectionState(this);
+		memorizeCardsState = new MemorizeCardsState(this, 0.5f);
+		matchingCardsState = new MatchingCardsState(this, 0.2f);
+		pauseGameState = new PauseGameState(this);
+		endGameState = new EndGameState(this);
 
-        if (cardCount <= 0)
-        {
-            TransitionState(endGameState);
-        }
-    }
+		gameState = cardSelectionState;
+	}
 
-    void InitStates()
-    {
-        cardSelectionState = new CardSelectionState(this);
-        pairSelectionState = new PairSelectionState(this);
-        memorizeCardsState = new MemorizeCardsState(this);
-        matchingCardsState = new MatchingCardsState(this);
-        pauseGameState = new PauseGameState(this);
-        endGameState = new EndGameState(this);
+	public void TransitionState(GameState newState)
+	{
+		gameState.EndState();
+		gameState = newState;
+		gameState.EnterState();
+	}
 
-        gameState = cardSelectionState;
-    }
+	public void SetSelectedCard(GameObject selectedCard)
+	{
+		movesCount++;
+		// uiController.ChangeMovesCount(movesCount);
 
-    public void TransitionState(GameState newState)
-    {
-        gameState.EndState();
-        gameState = newState;
-        gameState.EnterState();
-    }
+		if (selectedCards[0] == null)
+		{
+			selectedCards[0] = selectedCard;
+			TransitionState(pairSelectionState);
+		}
+		else if (selectedCards[1] == null)
+		{
+			selectedCards[1] = selectedCard;
 
-    public void SetSelectedCard(GameObject selectedCard)
-    {
-        movesCount++;
-        // uiController.ChangeMovesCount(movesCount);
+			if (MatchSelectedCards())
+			{
+				TransitionState(matchingCardsState);
+			}
+			else
+			{
+				TransitionState(memorizeCardsState);
+			}
+		}
+	}
 
-        if (selectedCard[0] == null)
-        {
-            selectedCard[0] = selectedCard;
-            TransitionState(pairSelectionState);
-        }else if (selectedCard[1] == null)
-        {
-            selectedCard[1] = selectedCard;
+	public void RemoveSelectedCards()
+	{
+		selectedCards[0] = null;
+		selectedCards[1] = null;
+	}
 
-            if (matchingCardsState())
-            {
-                TransitionState(matchingCardsState);
-            }
-            else
-            {
-                TransitionState(memorizeCardsState);
-            }
-        }
-    }
+	bool MatchSelectedCards()
+	{
+		CardScriptObject first = selectedCards[0].GetComponent<CardController>().cardType;
+		CardScriptObject second = selectedCards[1].GetComponent<CardController>().cardType;
 
-    public void RemoveSelectedCards()
-    {
-        selectedCards[0] == null;
-        selectedCards[1] == null;
-    }
-
-    bool MatchSelectedCards()
-    {
-        CardScriptObject first = selectedCards[0].GetComponent<CardController>().cardType;
-        CardScriptObject second = selectedCards[1].GetComponent<CardController>().cardType;
-        
-        return first != null && second != null && first.nameCard == second.pairName && first.pairName == second.nameCard;
-    }
+		return first != null && second != null && first.nameCard == second.pairName && first.pairName == second.nameCard;
+	}
 }
