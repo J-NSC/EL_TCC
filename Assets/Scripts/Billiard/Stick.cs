@@ -9,6 +9,7 @@ public class Stick : MonoBehaviour
     
     float horizontalInput;
     public int maxPower = 3;
+    
     [SerializeField] GameObject stick; 
     [SerializeField] PowerBar powerBar;
     
@@ -21,7 +22,7 @@ public class Stick : MonoBehaviour
     [SerializeField] float speed = 2.0f;
     [SerializeField] LayerMask layerMask ;
 
-    bool IsEnableStick = true;
+    [SerializeField] bool IsEnableStick = true;
     LineRenderer trajectory;
 
     public delegate void BallAppliedForceHandle();
@@ -39,6 +40,7 @@ public class Stick : MonoBehaviour
     {
         OnResetStick();
         powerBar.SetMaxPowerBar(maxPower);
+        
     }
 
     void Update()
@@ -46,10 +48,10 @@ public class Stick : MonoBehaviour
         
         if (IsEnableStick)
         {
-            horizontalInput =  Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+            horizontalInput =  Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
             transform.RotateAround(cueBall.position, Vector3.up , horizontalInput);
         }
-        
+    
         Shoot();
     }
 
@@ -74,14 +76,14 @@ public class Stick : MonoBehaviour
 
     public void Shoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetButton("Jump"))
         {
             powerBar.ResetPowerBar();
             power = Mathf.PingPong(Time.time * speed, maxPower);
             powerBar.SetPowerBar(power);
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Jump"))
         {
             
             Vector3 hitDirection = transform.up;
@@ -96,10 +98,7 @@ public class Stick : MonoBehaviour
     
     void ChamarBallAppliedForce()
     {
-        if (BallAppliedForce != null)
-        {
-            BallAppliedForce();
-        }
+        BallAppliedForce?.Invoke();
     }
 
     Vector3? RayTrajectory()
@@ -123,31 +122,4 @@ public class Stick : MonoBehaviour
     {
         stick.SetActive(IsEnableStick);
     }
-    
-    
-    // void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawRay(cueBall.position, transform.forward + cueBall.position * maxDistance);
-    // }
-    
-    // void RotateMousePosition()
-    // {
-    //     Vector3 posicaoMouse = Input.mousePosition;
-    //
-    //     Ray raioMouse = Camera.main.ScreenPointToRay(posicaoMouse);
-    //
-    //     Plane plano = new Plane(Vector3.forward, transform.position);
-    //     float distancia;
-    //     plano.Raycast(raioMouse, out distancia);
-    //
-    //     Vector3 posicaoAlvo = raioMouse.GetPoint(distancia);
-    //
-    //     Vector3 direcao = posicaoAlvo - transform.position;
-    //
-    //     float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg - 90f;
-    //     Quaternion rotacaoAlvo = Quaternion.AngleAxis(angulo, Vector3.forward);
-    //
-    //     transform.rotation = Quaternion.Slerp(transform.rotation, rotacaoAlvo, rotationSpeed * Time.deltaTime);
-    // }
 }

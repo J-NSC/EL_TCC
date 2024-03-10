@@ -278,7 +278,6 @@ MonoBehaviour:
   infoBox: {fileID: 0}
   descriptionText: {fileID: 0}
   nameSpotText: {fileID: 0}
-  infoBoxImage: {fileID: 0}
   description: 
   nameSpot: 
 --- !u!1 &4251667298962661993
@@ -582,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &703828039340148005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -599,8 +598,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0792, y: 5.8735}
-  m_SizeDelta: {x: 93.3373, y: 47.414}
+  m_AnchoredPosition: {x: -1.1343, y: 8.3841}
+  m_SizeDelta: {x: 134.69, y: 70.8468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1293154579354947679
 CanvasRenderer:

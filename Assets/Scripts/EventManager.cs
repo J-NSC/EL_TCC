@@ -8,12 +8,10 @@ public class EventManager : MonoBehaviour
     Ball ball;
     GameSetup gameSetup;
     Stick stick;
-    [SerializeField] GameObject objectStick; 
-
+    
     QuestionManagerBilliard questionManagerBilliard;
     HUDManager hudManager;
-
-    [SerializeField] float time;
+    int countBall = 1;
 
     void Awake()
     {
@@ -37,14 +35,14 @@ public class EventManager : MonoBehaviour
     void Update()
     {
         ball = FindObjectOfType<Ball>();
-        if (ball.isDesroyed)
+        if (ball.isDesroyed && countBall > 0)
         {
+            countBall = 0;
             Invoke("InvokeDestroyBall", .5f);
             Invoke("InvokeResetStick", .5f);
             Ball.enebledBall += stick.OnEnabledStick;
             ball.isDesroyed = false;
         }
-
     }
 
     void InvokeDestroyBall()
@@ -56,5 +54,6 @@ public class EventManager : MonoBehaviour
     void InvokeResetStick()
     {
         stick.OnResetStick();
+        countBall = 1;
     }
 }

@@ -14,6 +14,13 @@ public class QuizManage : MonoBehaviour
     public int currentQuestions;
 
     public TMP_Text QuestionTxt;
+    
+    public delegate void ScoreSendHandler(string msg);
+    public static event ScoreSendHandler scoreSend;
+
+    public delegate void GameOverHandler();
+
+    public static event GameOverHandler gameOver;
 
     int totalQuestions = 0;
     public int score = 0;
@@ -23,15 +30,16 @@ public class QuizManage : MonoBehaviour
         // QnA = new List<QuestionAndAnswers>(Resources.LoadAll<QuestionAndAnswers>("ScriptObject/Quiz"));
         totalQuestions = QnA.Count;
         GenerateQuestion();      
-        
+        scoreSend?.Invoke($"Acertos: {score.ToString()}/{totalQuestions}");
     }
 
     public void Correct()
     {
         //questão certa
+        score++;
         QnA.RemoveAt(currentQuestions);
         GenerateQuestion();
-        score++;
+        scoreSend?.Invoke($"Acertos: {score.ToString()}/{totalQuestions}");
     }
 
     public void wrong()
@@ -65,7 +73,7 @@ public class QuizManage : MonoBehaviour
         }
         else
         {
-            //gameOver   
+            gameOver?.Invoke();   
         }
     }
 }

@@ -14,19 +14,38 @@ public class QuestionManagerBilliard : MonoBehaviour
     public delegate void ValidatedQuestionHandle(bool msg);
     public static event ValidatedQuestionHandle validededQuestion;
 
+    public delegate void SendScoreBilliardHandler(string msg);
+    public static event SendScoreBilliardHandler SendScoreBilliard;
+
+    public delegate void GameOverScreenHandler();
+    public static event GameOverScreenHandler gameOver;
+
 
     
     int currentQuestion = 0;
+    int correctQuestion = 0;
+    int CountQuestion = 0;
+    bool isGameOver = false;
 
     void Start()
     {
         setRandonQuestion();
+        CountQuestion = QnB.Count;
+        SendScoreBilliard?.Invoke($"Questoes Corretas:{correctQuestion}/{CountQuestion}");
     }
 
 
     public void OnQuestChecked(string msg)
     {
-        validededQuestion?.Invoke(QnB[currentQuestion].correctAnswer.ToLower() == msg.ToLower() ? true: false );
+        if (QnB[currentQuestion].correctAnswer.ToLower() == msg.ToLower() && !isGameOver)
+        {
+            correctQuestion++;
+            validededQuestion?.Invoke( true);
+        }else
+            validededQuestion?.Invoke( false);
+        
+        SendScoreBilliard?.Invoke($"Questoes Corretas:{correctQuestion}/{CountQuestion}");
+
         QnB.RemoveAt(currentQuestion);
         setRandonQuestion();
     }
@@ -45,7 +64,8 @@ public class QuestionManagerBilliard : MonoBehaviour
         }
         else
         {
-            // game over    
+            isGameOver = true;
+            gameOver?.Invoke();    
         }
     }
 }
