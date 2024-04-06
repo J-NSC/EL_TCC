@@ -13,6 +13,7 @@ TagManager:
   - EmojiIMG
   - FeedbackTXT
   - QuestionCollider
+  - Collectable
   layers:
   - Default
   - TransparentFX
