@@ -22,7 +22,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 	[SerializeField] TMP_Text nameSpot;
 	[SerializeField] Button DescriptionButton;
 	[SerializeField] bool interativeCard = true;
-	[SerializeField] int countShowCard = 2; 
+	[SerializeField] InfoButton buttonInfo;
 
 	public CardScriptObject cardType;
 
@@ -42,6 +42,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 
 	void Start()
 	{
+		buttonInfo = FindObjectOfType<InfoButton>();
 		gameManager = (GameManager)FindObjectOfType(typeof(GameManager));
 		DescriptionButton = GetComponentInChildren<Button>(true);
 		
@@ -97,7 +98,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 
 	public void InactivateCard()
 	{
-		InfoBoxShowed?.Invoke(cardType.description, cardType.nameCard);
+		
 		Image cardImage = GetComponent<Image>();
 		Color newColor = cardImage.color;
 		newColor.a = 0.6f;
@@ -175,5 +176,10 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		actualState.OnClickAction();
+	}
+
+	public void ClickedButton()
+	{
+		InfoBoxShowed?.Invoke(cardType.description, cardType.nameCard);
 	}
 }

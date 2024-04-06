@@ -4,19 +4,19 @@
       "questionName": "Capitais Brasileiras",
       "question": "Qual é a capital do Brasil?",
       "answers": ["Brasília", "São Paulo", "Rio de Janeiro", "Salvador"],
-      "correctAnswer": 1
+      "correctAnswer": 0
     },
     {
       "questionName": "Rios Brasileiros",
       "question": "Qual é o maior rio do Brasil?",
       "answers": ["Amazonas", "São Francisco", "Tietê", "Paraná"],
-      "correctAnswer": 1
+      "correctAnswer": 0
     },
     {
       "questionName": "Estados Brasileiros",
       "question": "Qual é o estado mais populoso do Brasil?",
       "answers": ["São Paulo", "Minas Gerais", "Rio de Janeiro", "Bahia"],
-      "correctAnswer": 1
+      "correctAnswer": 0
     },
     {
       "questionName": "Biomas Brasileiros",
@@ -28,7 +28,7 @@
       "questionName": "Pontos Turísticos",
       "question": "Qual é a famosa estátua localizada no Rio de Janeiro?",
       "answers": ["Cristo Redentor", "Estátua da Liberdade", "Estátua de Colombo", "Estátua da Justiça"],
-      "correctAnswer": 1
+      "correctAnswer": 0
     }
   ]
   

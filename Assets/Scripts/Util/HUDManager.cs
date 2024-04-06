@@ -22,7 +22,9 @@ public class HUDManager : MonoBehaviour
     [SerializeField] TMP_Text ScoreGameOverText;
 
     [Header("GameOver")] 
-    [SerializeField] GameObject gameOverScreen; 
+    [SerializeField] GameObject gameOverScreen;
+
+    bool isGameOver = false;
     
     public delegate void ActivetedStickHandle(bool activeted);
     public static event ActivetedStickHandle activetedStick;
@@ -57,6 +59,7 @@ public class HUDManager : MonoBehaviour
 
     void Start()
     {
+        isGameOver = false;
         gameOverScreen.SetActive(false);
         screen.SetActive(false);
     }
@@ -68,7 +71,7 @@ public class HUDManager : MonoBehaviour
 
     public void OnShowScreenFeedback(bool msg)
     {
-        if (msg)
+        if (!isGameOver)
         {
             PauseGame(0);
             screen.SetActive(true);
@@ -92,6 +95,7 @@ public class HUDManager : MonoBehaviour
 
     public void GameOverScreen()
     {
+        isGameOver = true;
         gameOverScreen.SetActive(true);
     }
 

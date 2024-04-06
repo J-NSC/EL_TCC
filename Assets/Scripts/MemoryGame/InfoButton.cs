@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InfoButton : MonoBehaviour
 {
@@ -14,19 +13,27 @@ public class InfoButton : MonoBehaviour
     public string description;
     public string nameSpot;
     bool WriteDescription;
-    
+
     void OnEnable()
     {
-        CardController.InfoBoxShowed += (descriptio, name) =>
-        {
-            description = descriptio;
-            nameSpot = name;
-        };
+        CardController.InfoBoxShowed += DescriptionCard;
 
         CardController.buttonDescription += button =>
         {
             button.onClick.AddListener(ShowInfoSpot);
         };
+    }
+
+    void OnDisable()
+    {
+        CardController.InfoBoxShowed -= DescriptionCard;
+    }
+
+    void DescriptionCard(string descriptio, string name)
+    {
+        description = descriptio;
+        nameSpot = name;
+        Debug.Log(nameSpot +" " +description);
     }
 
     void Awake()
@@ -50,8 +57,15 @@ public class InfoButton : MonoBehaviour
         }
     }
 
-    public void ShowInfoSpot()
+    public void updateDescription(string msg)
     {
+        descriptionText.text = msg;
+        Debug.Log(msg);
+    }
+
+
+    public void ShowInfoSpot()
+    { 
        infoBox.SetActive(true);
        WriteDescription = true;
     }

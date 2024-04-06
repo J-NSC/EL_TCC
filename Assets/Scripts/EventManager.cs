@@ -31,6 +31,13 @@ public class EventManager : MonoBehaviour
         HUDManager.activetedStick += stick.OnEnabledStick;
     }
 
+    void OnDisable()
+    {
+        Ball.enebledBall -= stick.OnEnabledStick;
+        questionManagerBilliard.questionGenerated -= hudManager.OnQuestionGeneratedBilliard;
+        HUDManager.activetedStick -= stick.OnEnabledStick;
+    }
+
 
     void Update()
     {

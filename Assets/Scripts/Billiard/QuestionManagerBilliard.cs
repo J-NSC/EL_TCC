@@ -37,12 +37,12 @@ public class QuestionManagerBilliard : MonoBehaviour
 
     public void OnQuestChecked(string msg)
     {
-        if (QnB[currentQuestion].correctAnswer.ToLower() == msg.ToLower() && !isGameOver)
+        if (QnB[currentQuestion].correctAnswer.ToLower() == msg.ToLower())
         {
             correctQuestion++;
-            validededQuestion?.Invoke( true);
+            StartCoroutine(ValidedQuestionTime(true));
         }else
-            validededQuestion?.Invoke( false);
+            StartCoroutine(ValidedQuestionTime(false));
         
         SendScoreBilliard?.Invoke($"Questoes Corretas:{correctQuestion}/{CountQuestion}");
 
@@ -67,5 +67,11 @@ public class QuestionManagerBilliard : MonoBehaviour
             isGameOver = true;
             gameOver?.Invoke();    
         }
+    }
+
+    IEnumerator ValidedQuestionTime(bool msg)
+    {
+        yield return new WaitForSeconds(.1f);
+        validededQuestion?.Invoke( msg);
     }
 }

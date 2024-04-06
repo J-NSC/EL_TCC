@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
 	// public UIController uiController;
 
+	public static GameManager inst;
+
 	GameState gameState;
 
 	public CardSelectionState cardSelectionState;
@@ -23,6 +25,10 @@ public class GameManager : MonoBehaviour
 	public int cardCount = 2;
 	int movesCount;
 
+
+	[Header("Jogo da Cuca")] 
+	public LayerMask GroundLayer;
+
 	public int CardCount
 	{
 		set
@@ -32,6 +38,14 @@ public class GameManager : MonoBehaviour
 		get
 		{
 			return cardCount;
+		}
+	}
+
+	void Awake()
+	{
+		if (inst == null)
+		{
+			inst = this;
 		}
 	}
 
