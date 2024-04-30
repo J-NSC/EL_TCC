@@ -26,7 +26,7 @@ public class Runnig : State
 
         if (player.hasJumpInput)
         {
-            player.stateMachine.ChangeState(player.jumper);
+            player.stateMachine.ChangeState(player.jumping);
             return;
         }
         

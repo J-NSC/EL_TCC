@@ -22,8 +22,12 @@ public class PlayerAnimationControlle : MonoBehaviour
         Player.changedAnimation -= UpdateAnimation;
     }
 
-    void UpdateAnimation(string state)
+    void UpdateAnimation(string state, float speed, bool hasJump)
     {
-        anim.Play(state);                
+        anim.Play(state);
+        if (hasJump)
+            anim.SetTrigger("Jump");
+        
+        anim.SetFloat("Speed", speed);
     }
 }

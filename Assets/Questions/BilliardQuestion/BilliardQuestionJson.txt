@@ -1,45 +1,54 @@
 {
   "questions": [
     {
-      "questionName": "Localizacao de Santarem",
-      "question": "Em qual direçao está localizado Sanatarém?",
+      "questionName": "Localização da Floresta Amazônica",
+      "question": "Qual região brasileira abriga a Floresta Amazônica?",
       "correctAnswer": "Norte"
     },
     {
-      "questionName": "Localizacao de São Paulo",
-      "question": "Em qual direçao está localizado São Paulo?",
+      "questionName": "Localização do Pantanal",
+      "question": "Onde se localiza o Pantanal, uma das maiores planícies alagadas do mundo?",
+      "correctAnswer": "Centro Oeste"
+    },
+    {
+      "questionName": "Localização do Semiárido e Cultura Diversificada",
+      "question": "Qual região do Brasil possui um clima semiárido e é conhecida pela sua cultura diversificada e pelo frevo?",
+      "correctAnswer": "Nordeste"
+    },
+    {
+      "questionName": "Influência Italiana e Alemã",
+      "question": "Qual é a região brasileira conhecida por sua forte influência da colonização italiana e alemã, além de ser uma grande produtora de vinho?",
+      "correctAnswer": "Sul"
+    },
+    {
+      "questionName": "Centros Urbanos Importantes",
+      "question": "Em qual região do Brasil se encontram importantes centros urbanos como São Paulo, Rio de Janeiro e Belo Horizonte?",
       "correctAnswer": "Sudeste"
     },
-     {
-        "questionName": "Comunidades Indígenas",
-        "question": "Qual dessas regiões abriga mais comunidades indígenas, região noroeste ou Sudoeste?",
-        "correctAnswer": "Noroeste"
-      },
-      {
-        "questionName": "Maiores Estados",
-        "question": "Qual é a região que possui os dois maiores estados do Brasil em extensão territorial?",
-        "correctAnswer": "Norte"
-      },
-      {
-        "questionName": "Número de Estados",
-        "question": "Em que região do Brasil fica o maior número de estados?",
-        "correctAnswer": "Nordeste"
-      },
-      {
-        "questionName": "Fronteira com Paraguai e Argentina",
-        "question": "Qual destas regiões geográficas tem estados que fazem fronteira com Paraguai e Argentina, Noroeste ou Sudoeste?",
-        "correctAnswer": "Sudoeste"
-      },
-      {
-        "questionName": "Bioma Pampa",
-        "question": "O Pampa é um bioma predominante de que região do país?",
-        "correctAnswer": "Sul"
-      },
-      {
-        "questionName": "Região mais rica",
-        "question": "Qual é a região mais rica do Brasil?",
-        "correctAnswer": "Sudeste"
-      }
+    {
+      "questionName": "Chapada dos Veadeiros",
+      "question": "Onde está localizada a Chapada dos Veadeiros, uma área de grande importância ecológica e turística?",
+      "correctAnswer": "Centro Oeste"
+    },
+    {
+      "questionName": "Maior Concentração de Manguezais",
+      "question": "Qual é a região brasileira que possui a maior concentração de manguezais do país?",
+      "correctAnswer": "Nordeste"
+    },
+    {
+      "questionName": "Parque Nacional da Serra da Capivara",
+      "question": "Onde se encontra o Parque Nacional da Serra da Capivara, famoso por abrigar sítios arqueológicos com pinturas rupestres?",
+      "correctAnswer": "Nordeste"
+    },
+    {
+      "questionName": "Complexo Lagunar da Lagoa dos Patos",
+      "question": "Em qual região do Brasil está localizado o maior complexo lagunar do mundo, a Lagoa dos Patos?",
+      "correctAnswer": "Sul"
+    },
+    {
+      "questionName": "Vale do Paraíba",
+      "question": "Onde está localizado o Vale do Paraíba, importante região agrícola e industrial do país?",
+      "correctAnswer": "Sudeste"
+    }
   ]
 }
-

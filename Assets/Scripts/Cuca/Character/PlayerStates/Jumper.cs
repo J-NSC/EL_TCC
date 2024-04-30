@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
-public class Jumper : State
+public class Jumping : State
 {
     Player player;
     bool hasJump;
     
-    public Jumper(Player player) : base("jumper")
+    public Jumping(Player player) : base("Jumping")
     {
         this.player = player;
     }
@@ -26,10 +27,15 @@ public class Jumper : State
     public override void Update()
     {
         base.Update();
-           
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            hasJump = false;
+        }
+        
         if (player.isGrounded && hasJump)
         {
             player.stateMachine.ChangeState(player.idle);
+            hasJump = false;
             return;
         }
     }
@@ -38,10 +44,24 @@ public class Jumper : State
     {
         base.FixedUpdate();
 
-        if (!hasJump)
+        bool hasDoubleJumpPowerUp = player.characteSO.powerUps[0].actived;
+
+        if (!hasJump && !hasDoubleJumpPowerUp)
         {
             hasJump = true;
-            ApplyImpulse();
+            if (player.characteSO.CountJump >= 0)
+            {
+                ApplyImpulse();
+            }
+        }
+        
+        if (!hasJump && hasDoubleJumpPowerUp)
+        {
+            if (player.characteSO.CountJump >= 0)
+            {
+                ApplyImpulse();
+            }
+            hasJump = true;
         }
         
         player.rig.velocity = new Vector2(player.dir * player.speed, player.rig.velocity.y);
@@ -54,6 +74,6 @@ public class Jumper : State
 
     public void ApplyImpulse()
     {
-        player.rig.velocity = Vector2.up * player.jumpForce;
+        player.rig.velocity = new Vector2(player.rig.velocity.x, player.jumpForce);
     }
 }

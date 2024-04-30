@@ -1502,7 +1502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4047007184820483525, guid: b49ba3b602f8fe5488ed88043157b6a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5210096206746991765, guid: b49ba3b602f8fe5488ed88043157b6a5, type: 3}
       propertyPath: m_Pivot.x
@@ -2035,6 +2035,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedCards: []
   cardCount: 0
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1975266446
 Transform:
   m_ObjectHideFlags: 0

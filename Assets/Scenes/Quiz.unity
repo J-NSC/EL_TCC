@@ -234,11 +234,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8938a33e86149c4399c0ccce9439012, type: 3}
---- !u!1 &138737604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6929419581306831943, guid: f8938a33e86149c4399c0ccce9439012, type: 3}
-  m_PrefabInstance: {fileID: 138737603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &138737605 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8881692802135812033, guid: f8938a33e86149c4399c0ccce9439012, type: 3}
@@ -517,7 +512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &273391333
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6305,7 +6300,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 1698927839}
-  fade: {fileID: 138737604}
+  Fade: {fileID: 0}
+  fadeImage: {fileID: 0}
+  fadeAnim: {fileID: 0}
+  targetScene: 
 --- !u!114 &1696007825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6681,10 +6679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - {fileID: 11400000, guid: 89f75af1cdb89e44e84e2ab3d29643e1, type: 2}
-  - {fileID: 11400000, guid: 29947ebad7bdab640bcb2e66d6820ccf, type: 2}
-  - {fileID: 11400000, guid: d8fac3b08eb483a4a99ec809eba9d17d, type: 2}
-  - {fileID: 11400000, guid: a2cd94ed871d85e4fb2f20248e800a0d, type: 2}
   - {fileID: 11400000, guid: 9c7db1a3283972c43b29e24146cbe637, type: 2}
   options:
   - {fileID: 1469162018}
@@ -6868,7 +6862,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2378532047118416902, guid: 225e6fb4039c0e44e9029e020f4c1645, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5211029638035126922, guid: 225e6fb4039c0e44e9029e020f4c1645, type: 3}
       propertyPath: m_Pivot.x
@@ -6956,7 +6950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996745397959407918, guid: 225e6fb4039c0e44e9029e020f4c1645, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

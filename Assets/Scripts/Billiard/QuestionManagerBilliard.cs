@@ -20,12 +20,12 @@ public class QuestionManagerBilliard : MonoBehaviour
     public delegate void GameOverScreenHandler();
     public static event GameOverScreenHandler gameOver;
 
-
+    public delegate void EnabledDoubleJumpHandler(string name, bool isEnabled);
+    public static event  EnabledDoubleJumpHandler enabelDoubleJump;
     
     int currentQuestion = 0;
     int correctQuestion = 0;
     int CountQuestion = 0;
-    bool isGameOver = false;
 
     void Start()
     {
@@ -64,8 +64,14 @@ public class QuestionManagerBilliard : MonoBehaviour
         }
         else
         {
-            isGameOver = true;
-            gameOver?.Invoke();    
+            if (correctQuestion >= 1)
+            {
+                enabelDoubleJump?.Invoke( "Pulo Duplo",true);
+                
+            }
+            
+            gameOver?.Invoke();  
+         
         }
     }
 

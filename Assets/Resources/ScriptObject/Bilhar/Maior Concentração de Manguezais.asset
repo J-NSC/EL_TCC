@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aae53f89f65d874b9c2f068265aee03, type: 3}
+  m_Name: "Maior Concentra\xE7\xE3o de Manguezais"
+  m_EditorClassIdentifier: 
+  questionName: "Maior Concentra\xE7\xE3o de Manguezais"
+  question: "Qual \xE9 a regi\xE3o brasileira que possui a maior concentra\xE7\xE3o
+    de manguezais do pa\xEDs?"
+  correctAnswer: Nordeste

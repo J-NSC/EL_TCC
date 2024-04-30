@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aae53f89f65d874b9c2f068265aee03, type: 3}
+  m_Name: "Influ\xEAncia Italiana e Alem\xE3"
+  m_EditorClassIdentifier: 
+  questionName: "Influ\xEAncia Italiana e Alem\xE3"
+  question: "Qual \xE9 a regi\xE3o brasileira conhecida por sua forte influ\xEAncia
+    da coloniza\xE7\xE3o italiana e alem\xE3, al\xE9m de ser uma grande produtora
+    de vinho?"
+  correctAnswer: Sul

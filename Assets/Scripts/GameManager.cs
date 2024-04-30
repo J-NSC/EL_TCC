@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 	// public UIController uiController;
+	public delegate void PausedScreenHandle(bool state);
+	public static event PausedScreenHandle pausedScreen;
 
 	public static GameManager inst;
 
@@ -24,10 +26,12 @@ public class GameManager : MonoBehaviour
 
 	public int cardCount = 2;
 	int movesCount;
-
+	bool isPause = false;
+ 
 
 	[Header("Jogo da Cuca")] 
 	public LayerMask GroundLayer;
+	[SerializeField] CharacterStatisticSO characterSo;
 
 	public int CardCount
 	{
@@ -43,13 +47,23 @@ public class GameManager : MonoBehaviour
 
 	void Awake()
 	{
+		Debug.Log("gamemanager");
 		if (inst == null)
 		{
 			inst = this;
 		}
 	}
 
-	// Start is called before the first frame update
+	void OnEnable()
+	{
+		QuestionManagerBilliard.enabelDoubleJump += EnabledPowerUp;
+	}
+
+	void OnDisable()
+	{
+		QuestionManagerBilliard.enabelDoubleJump -= EnabledPowerUp;
+	}
+
 	void Start()
 	{
 		movesCount = 0;
@@ -68,6 +82,14 @@ public class GameManager : MonoBehaviour
 		{
 			TransitionState(endGameState);
 		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			isPause = !isPause;
+			pausedScreen?.Invoke(!isPause);
+		}
+		
+		
 	}
 
 	void InitStates()
@@ -127,4 +149,18 @@ public class GameManager : MonoBehaviour
 
 		return first != null && second != null && first.nameCard == second.pairName && first.pairName == second.nameCard;
 	}
+
+	public void EnabledPowerUp(string name, bool isActived)
+	{
+		for (int i = 0; i < characterSo.powerUps.Count; i++)
+		{
+			if (characterSo.powerUps[i].name == name && isActived)
+			{
+				var teste = characterSo.powerUps[i];
+				teste.actived = true;
+				characterSo.powerUps[i] = teste;	
+			}
+		}
+	}
+	
 }

@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public delegate void  ChangedAnimationHandle(string state);
+    [SerializeField] public CharacterStatisticSO characteSO;
+    
+    public delegate void  ChangedAnimationHandle(string state, float speed, bool hasJumpInput);
     public static event ChangedAnimationHandle changedAnimation;
+
+    public delegate void OpenedDoorHandle(bool isOpen);
+    public static event OpenedDoorHandle openDoor;
     
     public Rigidbody2D rig;
     public Idle idle;
-    public Jumper jumper;
+    public Jumping jumping;
     public Runnig runnig;
     public StateMachine stateMachine;
     
@@ -25,37 +30,77 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     public bool hasJumpInput;
 
+    bool alterMaxJumper = false;
+
+    public static bool playerInstatiated = false;
+    [SerializeField] bool isDoor = false; 
+    
+
     SpriteRenderer cucaSprite;
+
+    void OnEnable()
+    {
+        PlayerCollider.playerEnteredToDoor += door =>
+        {
+            isDoor = door;
+        };
+        ScenesManager.InstantiededPlayer += () =>
+        {
+            transform.position = characteSO.SpwanPoint;
+        };
+    }
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        if (playerInstatiated)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        playerInstatiated = true;
+        
         rig = GetComponent<Rigidbody2D>();
         stateMachine = new StateMachine();
         cucaSprite = GetComponentInChildren<SpriteRenderer>();
         
         idle = new Idle(this);
         runnig = new Runnig(this);
-        jumper = new Jumper(this);
+        jumping = new Jumping(this);
         stateMachine.ChangeState(idle);
-
+        
     }
 
     void Start()
     {
+        characteSO.maxJump = 1;
+        characteSO.CountJump = characteSO.maxJump;
     }
 
-    // Update is called once per frame
     void Update()
     {
         inputCheck();
-        changedAnimation?.Invoke(stateMachine.currentStateName);
+        changedAnimation?.Invoke(stateMachine.currentStateName, rig.velocity.y, hasJumpInput);
+
         origin = transform.position;
         maxDistance = 1;
         DetectGround();
         Flip();
+
+        if (hasJumpInput)
+        {
+            characteSO.CountJump--;
+        }
+
+        if (characteSO.powerUps[0].actived && !alterMaxJumper)
+        {
+            characteSO.maxJump = 2;
+            alterMaxJumper = true;
+        }
+
         stateMachine.Update();
     }
-
 
     void FixedUpdate()
     {
@@ -66,7 +111,11 @@ public class Player : MonoBehaviour
     {
         dir = Input.GetAxisRaw("Horizontal");
         hasJumpInput = Input.GetButtonDown("Jump");
-        
+        if (isDoor && Input.GetKeyDown(KeyCode.E))
+        {
+            openDoor?.Invoke(isDoor);
+            characteSO.SpwanPoint = transform.position;
+        }else if(!isDoor) openDoor?.Invoke(false);
     }
 
     void DetectGround()
@@ -82,6 +131,7 @@ public class Player : MonoBehaviour
         if (Physics2D.Raycast(origin, rayDirection, maxDistance, groundLayer))
         {
             isGrounded = true;
+            characteSO.CountJump = characteSO.maxJump;
         }
     }
 
@@ -91,13 +141,5 @@ public class Player : MonoBehaviour
         {
             cucaSprite.flipX = dir < 0; 
         }
-    }
-
-
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(origin, rayDirection);
     }
 }

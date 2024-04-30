@@ -73,6 +73,7 @@ public class QuizManage : MonoBehaviour
         }
         else
         {
+            Debug.Log("TESTE");
             gameOver?.Invoke();   
         }
     }
