@@ -6,7 +6,11 @@ public class MatchingCardsState : GameState
 {
     float timeToWait;
     float timer;
+    int points;
 
+    public delegate void SendedPointHandle(int point);
+    public static event SendedPointHandle sendPoint;
+    
     public MatchingCardsState(GameManager gameManager, float timeToWait) : base(gameManager)
     {
         this.timeToWait = timeToWait;
@@ -35,6 +39,8 @@ public class MatchingCardsState : GameState
 
     public override void EndState()
     {
+        points++;
+        sendPoint?.Invoke(points);
         gameManager.RemoveSelectedCards();
         gameManager.CardCount -= 2;
     }

@@ -5,7 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CucaQuestion", menuName = "CucaGame/Cuca")]
 public class SOCucaGame : ScriptableObject
 {
-    public string LevelName;
-    public string Question;
-    public string correctAnswer;
+    public int id;
+    public string questionName;
+    public string question;
+    public string[] answers;
+    public int correctAnswer;
+    public bool correct;
 }

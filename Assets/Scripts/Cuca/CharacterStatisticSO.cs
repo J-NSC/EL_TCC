@@ -6,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Character", menuName = "Character/statistic")]
 public class CharacterStatisticSO : ScriptableObject
 {
+    public int loadLevel;
+    
     public Vector3 SpwanPoint;
     public int coins;
     public int points;

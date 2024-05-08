@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class InfoPlate : MonoBehaviour
 {
-    SignInfoSO signInfoSo;
+    [SerializeField] SignInfoSO signInfoSo;
     [SerializeField] GameObject houseGame;
     [SerializeField] GameObject canvasObj;
 
     void Awake()
     {
-        houseGame = GameObject.FindWithTag("MiniGameHouse");
-        canvasObj = houseGame.transform.GetChild(1).gameObject;
+        canvasObj = houseGame.transform.GetChild(2).gameObject;
     }
 
     void OnEnable()
@@ -29,16 +28,11 @@ public class InfoPlate : MonoBehaviour
     void Start()
     {
         canvasObj.SetActive(false);
-    }
-
-    
-    void Update()
-    {
         
     }
 
     void OnShowedInfo(bool showed)
     {
-           canvasObj.SetActive(showed);
+        canvasObj.SetActive(showed);
     }
 }

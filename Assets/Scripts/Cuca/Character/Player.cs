@@ -32,8 +32,12 @@ public class Player : MonoBehaviour
 
     bool alterMaxJumper = false;
 
+    [SerializeField] GameObject spwanPosition;
+
     public static bool playerInstatiated = false;
-    [SerializeField] bool isDoor = false; 
+    [SerializeField] bool isDoor = false;
+
+    bool activedChangeState = true;
     
 
     SpriteRenderer cucaSprite;
@@ -50,6 +54,7 @@ public class Player : MonoBehaviour
         };
     }
 
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -58,6 +63,13 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        
+        if (characteSO.loadLevel == 0)
+        {
+            characteSO.SpwanPoint = spwanPosition.transform.position;
+            characteSO.loadLevel++;
+        }
+
 
         playerInstatiated = true;
         
@@ -79,6 +91,7 @@ public class Player : MonoBehaviour
     }
 
     void Update()
+    
     {
         inputCheck();
         changedAnimation?.Invoke(stateMachine.currentStateName, rig.velocity.y, hasJumpInput);
@@ -86,7 +99,6 @@ public class Player : MonoBehaviour
         origin = transform.position;
         maxDistance = 1;
         DetectGround();
-        Flip();
 
         if (hasJumpInput)
         {
@@ -98,13 +110,17 @@ public class Player : MonoBehaviour
             characteSO.maxJump = 2;
             alterMaxJumper = true;
         }
-
-        stateMachine.Update();
+        if (activedChangeState)
+        {
+            Flip();
+            stateMachine.Update();
+        }
     }
 
     void FixedUpdate()
     {
-        stateMachine.FixedUpdate();
+        if (activedChangeState)
+            stateMachine.FixedUpdate();
     }
 
     void inputCheck()

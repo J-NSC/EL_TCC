@@ -10,6 +10,9 @@ public class ScenesManager : MonoBehaviour
     public delegate void InstantiededPlayerInPointHandler();
     public static event InstantiededPlayerInPointHandler InstantiededPlayer;
     
+    public delegate void ResededPlayerSpwanerHandler();
+    public static event ResededPlayerSpwanerHandler resededPlayerSpwaner;
+    
     [SerializeField] GameObject Menu;
     [SerializeField] GameObject Fade;
     [SerializeField] Image fadeImage;
@@ -46,9 +49,9 @@ public class ScenesManager : MonoBehaviour
 
    
 
-    public void Load(string sceneName)
+    public void Load(int Indexscene)
     {
-        StartCoroutine(fading(sceneName));
+        StartCoroutine(fading(Indexscene));
     }
 
     public void OnSceneLoad(Scene scene, LoadSceneMode loadSceneMode)
@@ -60,15 +63,15 @@ public class ScenesManager : MonoBehaviour
     }
 
 
-    IEnumerator fading(string sceneName)
+    IEnumerator fading(int Indexscene)
     {
         fadeAnim.SetBool("Fade", true);
         PauseGame(false);
         yield return new WaitUntil(() => fadeImage.color.a == 1);
-        SceneManager.LoadScene(sceneName);
+        
+        SceneManager.LoadScene(Indexscene);
     }
     
-   
 
     public void PauseGame(bool isPaused)
     {

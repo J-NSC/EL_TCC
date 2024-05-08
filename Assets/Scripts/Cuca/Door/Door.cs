@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    Animator doorAnim;
+    [SerializeField] Animator doorAnim;
     [SerializeField] SignInfoSO signInfoSo;
-    public  delegate void ChangedSceneHandle(string scene);
+    public  delegate void ChangedSceneHandle(int indexscene);
     public static event ChangedSceneHandle changedScene;
 
     void Awake()
@@ -33,7 +33,7 @@ public class Door : MonoBehaviour
 
     void endOpenDoorAnimation()
     {
-        changedScene?.Invoke(signInfoSo.Minegame);
+        // Debug.Log(signInfoSo.MinegameIndex);
+        changedScene?.Invoke(signInfoSo.MinegameIndex);
     }
-    
 }

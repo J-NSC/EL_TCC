@@ -7,5 +7,5 @@ using UnityEngine;
 public class SignInfoSO : ScriptableObject
 {
     public string HouseName;
-    public string Minegame;
+    public int MinegameIndex;
 }

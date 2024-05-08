@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 	public EndGameState endGameState;
 	public PauseGameState pauseGameState;
 
+	[SerializeField] GameObject infoPlate;
+
 	public GameObject[] selectedCards;
 
 	public int cardCount = 2;
@@ -47,7 +49,6 @@ public class GameManager : MonoBehaviour
 
 	void Awake()
 	{
-		Debug.Log("gamemanager");
 		if (inst == null)
 		{
 			inst = this;
@@ -162,5 +163,4 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
-	
 }
