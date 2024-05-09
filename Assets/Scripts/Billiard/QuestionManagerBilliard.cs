@@ -31,7 +31,7 @@ public class QuestionManagerBilliard : MonoBehaviour
     {
         setRandonQuestion();
         CountQuestion = QnB.Count;
-        SendScoreBilliard?.Invoke($"Questoes Corretas:{correctQuestion}/{CountQuestion}");
+        SendScoreBilliard?.Invoke($"Acertos:{correctQuestion}/{CountQuestion}");
     }
 
 
@@ -64,14 +64,12 @@ public class QuestionManagerBilliard : MonoBehaviour
         }
         else
         {
-            if (correctQuestion >= 1)
+            if (correctQuestion >= (CountQuestion / 2))
             {
                 enabelDoubleJump?.Invoke( "Pulo Duplo",true);
-                
             }
             
             gameOver?.Invoke();  
-         
         }
     }
 

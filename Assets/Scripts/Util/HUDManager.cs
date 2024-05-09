@@ -35,6 +35,8 @@ public class HUDManager : MonoBehaviour
         QuizManage.gameOver += GameOverScreen;
 
         QuestionManagerBilliard.gameOver += GameOverScreen;
+        
+        GameManager.gameOver += GameOverScreen;
 
         QuestionManagerBilliard.SendScoreBilliard += msg =>
         {
@@ -53,6 +55,7 @@ public class HUDManager : MonoBehaviour
     {
         QuizManage.gameOver -= GameOverScreen;
         QuestionManagerBilliard.gameOver -= GameOverScreen;
+        GameManager.gameOver -= GameOverScreen;
         QuestionManagerBilliard.validededQuestion -= OnShowScreenFeedback;
 
     }

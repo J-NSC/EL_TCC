@@ -6362,6 +6362,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   characterSo: {fileID: 11400000, guid: ae4ec4e48c911c54a9d6baf79e2f3cb3, type: 2}
+  quizIndex: {fileID: 0}
 --- !u!1001 &1698927838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6740,7 +6741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
+  - {fileID: 11400000, guid: 89f75af1cdb89e44e84e2ab3d29643e1, type: 2}
+  - {fileID: 11400000, guid: 29947ebad7bdab640bcb2e66d6820ccf, type: 2}
   - {fileID: 11400000, guid: 9c7db1a3283972c43b29e24146cbe637, type: 2}
+  - {fileID: 11400000, guid: d8fac3b08eb483a4a99ec809eba9d17d, type: 2}
+  - {fileID: 11400000, guid: a2cd94ed871d85e4fb2f20248e800a0d, type: 2}
   options:
   - {fileID: 1469162018}
   - {fileID: 1860827100}

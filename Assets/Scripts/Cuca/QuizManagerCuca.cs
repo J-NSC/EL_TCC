@@ -57,9 +57,6 @@ public class QuizManagerCuca : MonoBehaviour
         QnA[quizIndex.index].correct = true;
         if (quizIndex.index == 0)
             quizIndex.activedPlatform_1 = true;
-        else
-            quizIndex.activedPlatform_2 = true;
-        
         quizIndex.index++;
         GenerateQuestion();
         correctQuestion?.Invoke();

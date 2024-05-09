@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 	// public UIController uiController;
 	public delegate void PausedScreenHandle(bool state);
 	public static event PausedScreenHandle pausedScreen;
+	
+	public delegate void GamOverHandle();
+	public static event GamOverHandle gameOver;
 
 	public static GameManager inst;
 
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
 	[Header("Jogo da Cuca")] 
 	public LayerMask GroundLayer;
 	[SerializeField] CharacterStatisticSO characterSo;
+	
+	[SerializeField] QuizIndexSO quizIndex;
 
 	public int CardCount
 	{
@@ -82,6 +87,8 @@ public class GameManager : MonoBehaviour
 		if (cardCount <= 0)
 		{
 			TransitionState(endGameState);
+			gameOver?.Invoke();
+			quizIndex.activedPlatform_2 = true;
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -89,8 +96,6 @@ public class GameManager : MonoBehaviour
 			isPause = !isPause;
 			pausedScreen?.Invoke(!isPause);
 		}
-		
-		
 	}
 
 	void InitStates()
