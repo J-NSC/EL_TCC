@@ -11,13 +11,13 @@ public class CameraManager : MonoBehaviour
 
     void Awake()
     {
-        VCamera.Follow = FindObjectOfType<Player>().transform;
+       
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+         VCamera.Follow = FindObjectOfType<Player>().transform;
     }
 }

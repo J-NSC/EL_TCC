@@ -15,7 +15,7 @@ public class ResetPlayerPosition : MonoBehaviour
 
     void Awake()
     {
-        player = FindObjectOfType<Player>().gameObject;
+        
     }
 
     void OnEnable()
@@ -39,7 +39,7 @@ public class ResetPlayerPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        player = FindObjectOfType<Player>().gameObject;
     }
 
     void OnResetPlayerPosition()
