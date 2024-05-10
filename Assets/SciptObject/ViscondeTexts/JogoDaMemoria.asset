@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09d9deb3bce8cc45baa5b774adfb3ec, type: 3}
+  m_Name: JogoDaMemoria
+  m_EditorClassIdentifier: 
+  lines:
+  - "Vejo que voc\xEA conseguiu passar do primeiro desafio. Parab\xE9ns!"
+  - "O pr\xF3ximo desafio ser\xE1 um jogo da mem\xF3ria. Conserte a ortografia e
+    a concord\xE2ncia dessa frase."
+  - "Como eu sou uma boa pessoa, vou lhe dar uma dica: quando voc\xEA encontrar o
+    par das cartas, aperte no bot\xE3o de exclama\xE7\xE3o no topo da carta. Ele
+    mostrar\xE1 uma descri\xE7\xE3o do ponto tur\xEDstico."
+  - "N\xE3o se esque\xE7a disso, pode ser \xFAtil mais tarde."

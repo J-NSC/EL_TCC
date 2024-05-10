@@ -37,9 +37,7 @@ public class Player : MonoBehaviour
     public static bool playerInstatiated = false;
     [SerializeField] bool isDoor = false;
 
-    bool activedChangeState = true;
-    
-
+    bool isMovement = true; 
     SpriteRenderer cucaSprite;
 
     void OnEnable()
@@ -52,6 +50,16 @@ public class Player : MonoBehaviour
         {
             transform.position = characteSO.SpwanPoint;
         };
+
+        Sing.enableMovPlayer += OnDisableMoviment;
+
+    }
+
+    void OnDisableMoviment(bool actived)
+    {
+        isMovement = actived;
+        rig.velocity = Vector2.zero;
+        stateMachine.ChangeState(idle);
     }
 
 
@@ -110,7 +118,7 @@ public class Player : MonoBehaviour
             characteSO.maxJump = 2;
             alterMaxJumper = true;
         }
-        if (activedChangeState)
+        if (isMovement)
         {
             Flip();
             stateMachine.Update();
@@ -119,7 +127,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (activedChangeState)
+        if (isMovement)
             stateMachine.FixedUpdate();
     }
 

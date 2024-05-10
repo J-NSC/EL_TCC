@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
+
+    
     public delegate void TriggeredQuestionAreaHandler(bool actived, string name);
     public static event TriggeredQuestionAreaHandler triggeredQuestionArea;
 
@@ -26,7 +28,7 @@ public class PlayerCollider : MonoBehaviour
     public delegate void ChangedPositionSpwanerHandle();
     public static event ChangedPositionSpwanerHandle ChangedPositionSpwaner;
 
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("QuestionCollider"))

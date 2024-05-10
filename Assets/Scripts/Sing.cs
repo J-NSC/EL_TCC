@@ -16,10 +16,22 @@ public class Sing : MonoBehaviour
 
     [SerializeField] IndexVIscondeSO indexs;
 
+    public bool viscondeInstatiated = false; 
+
+    public delegate void EnabledMovPlayeHandle(bool actived);
+    public static event EnabledMovPlayeHandle enableMovPlayer;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        if (viscondeInstatiated)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        viscondeInstatiated = true;
+        
         viscondeAnim = GetComponent<Animator>();
     }
 
@@ -105,6 +117,7 @@ public class Sing : MonoBehaviour
             playerCollider = true;
             dialogBox.SetActive(true);
             StartDialogue();
+            enableMovPlayer?.Invoke(false);            
         }
     }
     
@@ -118,6 +131,7 @@ public class Sing : MonoBehaviour
             viscondeAnim.SetBool("Talking", false);
             viscondeAnim.SetBool("Smoke", true);
             StopCoroutine(typeLine());
+            enableMovPlayer?.Invoke(true);
         }
     }
 }
