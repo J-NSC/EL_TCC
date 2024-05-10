@@ -34,6 +34,7 @@ public class InfoButton : MonoBehaviour
         description = descriptio;
         nameSpot = name;
         Debug.Log(nameSpot +" " +description);
+        ShowInfoSpot();
     }
 
     void Awake()

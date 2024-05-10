@@ -57,8 +57,7 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 
 		actualState = backState;
 	}
-
-	// Update is called once per frame
+	
 	void Update()
 	{
 		actualState.UpdateActivity();
@@ -73,7 +72,6 @@ public class CardController : MonoBehaviour, IPointerDownHandler
 		touristSpot.sprite = card.sprite;
 		
 		nameSpot.text = Regex.Replace(card.nameCard, @"\d", "");
-
 		backFace.gameObject.SetActive(true);
 		frontFace.gameObject.SetActive(false);
 		touristSpot.gameObject.SetActive(false);

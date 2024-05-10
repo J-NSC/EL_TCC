@@ -121,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 469733468076131032}
-        m_TargetAssemblyTypeName: InfoButton, Assembly-CSharp
-        m_MethodName: ShowInfoSpot
+      - m_Target: {fileID: 5895038488311838771}
+        m_TargetAssemblyTypeName: CardController, Assembly-CSharp
+        m_MethodName: ClickedButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -261,7 +261,7 @@ MonoBehaviour:
   nameSpot: {fileID: 666713572035832736}
   DescriptionButton: {fileID: 0}
   interativeCard: 1
-  countShowCard: 2
+  buttonInfo: {fileID: 0}
   cardType: {fileID: 0}
 --- !u!114 &469733468076131032
 MonoBehaviour:
@@ -278,7 +278,6 @@ MonoBehaviour:
   infoBox: {fileID: 0}
   descriptionText: {fileID: 0}
   nameSpotText: {fileID: 0}
-  infoBoxImage: {fileID: 0}
   description: 
   nameSpot: 
 --- !u!1 &4251667298962661993
