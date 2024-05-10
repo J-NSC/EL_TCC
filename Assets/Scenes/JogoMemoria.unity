@@ -958,6 +958,7 @@ GameObject:
   - component: {fileID: 657799053}
   - component: {fileID: 657799052}
   - component: {fileID: 657799055}
+  - component: {fileID: 657799056}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1056,6 +1057,27 @@ MonoBehaviour:
   fadeImage: {fileID: 445636851}
   fadeAnim: {fileID: 445636850}
   targetScene: 01000000
+--- !u!114 &657799056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657799051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de352c2b1acb8504b93c3c7b971ec667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestionText: {fileID: 0}
+  emoji: []
+  screen: {fileID: 0}
+  emojiFeedBack: {fileID: 0}
+  textFeedBack: {fileID: 0}
+  messageFeedBack: []
+  scoreText: {fileID: 0}
+  ScoreGameOverText: {fileID: 0}
+  gameOverScreen: {fileID: 543767486}
 --- !u!1 &675432741
 GameObject:
   m_ObjectHideFlags: 0

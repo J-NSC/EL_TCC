@@ -96,8 +96,9 @@ public class HUDManager : MonoBehaviour
         Time.timeScale = value;
     }
 
-    public void GameOverScreen()
+    void GameOverScreen()
     {
+        Debug.Log("fim de jogo");
         isGameOver = true;
         gameOverScreen.SetActive(true);
     }
