@@ -28,6 +28,8 @@ public class PlayerCollider : MonoBehaviour
     public delegate void ChangedPositionSpwanerHandle();
     public static event ChangedPositionSpwanerHandle ChangedPositionSpwaner;
 
+    public delegate void StartAnimationCauldronHandle();
+    public static event StartAnimationCauldronHandle startAnimationCauldron;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -69,6 +71,11 @@ public class PlayerCollider : MonoBehaviour
         if (other.gameObject.CompareTag("SpwanerMov"))
         {
             ChangedPositionSpwaner?.Invoke();
+        }
+
+        if (other.gameObject.CompareTag("Calderao"))
+        {
+           startAnimationCauldron?.Invoke();
         }
     }
 

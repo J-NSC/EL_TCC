@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - "Vejo que voc\xEA conseguiu passar do primeiro desafio. Parab\xE9ns!"
-  - "O pr\xF3ximo desafio ser\xE1 um jogo da mem\xF3ria. Conserte a ortografia e
-    a concord\xE2ncia dessa frase."
+  - "O pr\xF3ximo desafio ser\xE1 um jogo da mem\xF3ria"
   - "Como eu sou uma boa pessoa, vou lhe dar uma dica: quando voc\xEA encontrar o
     par das cartas, aperte no bot\xE3o de exclama\xE7\xE3o no topo da carta. Ele
     mostrar\xE1 uma descri\xE7\xE3o do ponto tur\xEDstico."
