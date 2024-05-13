@@ -22,6 +22,8 @@ public class QuizManage : MonoBehaviour
 
     public static event GameOverHandler gameOver;
 
+    [SerializeField] SOCucaGame cucaSO;
+
     int totalQuestions = 0;
     public int score = 0;
 
@@ -74,6 +76,7 @@ public class QuizManage : MonoBehaviour
         else
         {
             Debug.Log("TESTE");
+            cucaSO.correct = true;  
             gameOver?.Invoke();   
         }
     }

@@ -59,7 +59,6 @@ public class PlayerCollider : MonoBehaviour
 
         if (other.gameObject.CompareTag("MiniGameHouse"))
         {
-            Debug.Log("teste");
             sendNameHouse?.Invoke(other.name, true);
         }
 

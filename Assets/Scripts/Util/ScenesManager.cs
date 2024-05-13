@@ -18,11 +18,21 @@ public class ScenesManager : MonoBehaviour
     [SerializeField] Image fadeImage;
     [SerializeField] Animator fadeAnim;
     [SerializeField] List<int> targetScene;
+
+    [SerializeField] GameObject[] MenuButtons ;
     
     bool isPaused = false;
+    
+    void Awake()
+    {
+        Fade = GameObject.Find("Fade");
+        fadeImage = Fade.GetComponent<Image>();
+    }
+
 
     void OnEnable()
     {
+        
         Door.changedScene += Load;
         GameManager.pausedScreen += PauseGame;
         SceneManager.sceneLoaded += OnSceneLoad;
@@ -34,12 +44,6 @@ public class ScenesManager : MonoBehaviour
         Door.changedScene -= Load;
         GameManager.pausedScreen -= PauseGame;
         SceneManager.sceneLoaded -= OnSceneLoad;
-    }
-
-    void Awake()
-    {
-        Fade = GameObject.Find("Fade");
-        fadeImage = Fade.GetComponent<Image>();
     }
 
     void Start()
@@ -62,6 +66,12 @@ public class ScenesManager : MonoBehaviour
         } 
     }
 
+    public void ResetScene()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
+    }
+
 
     IEnumerator fading(int Indexscene)
     {
@@ -78,10 +88,13 @@ public class ScenesManager : MonoBehaviour
         if (isPaused)
         {
             Time.timeScale = 0f;
+            MenuButtons[0].SetActive(true);
+            MenuButtons[1].SetActive(false);
             Menu.SetActive(true);    
         }
         else
         {
+            MenuButtons[0].SetActive(false);
             Time.timeScale = 1f;
             Menu.SetActive(false);
         }

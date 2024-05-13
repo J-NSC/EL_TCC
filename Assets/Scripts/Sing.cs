@@ -15,23 +15,25 @@ public class Sing : MonoBehaviour
     [SerializeField] List<Transform> positions;
 
     [SerializeField] IndexVIscondeSO indexs;
-
-    public bool viscondeInstatiated = false; 
-
+    public int letterIndex;
+    
+    public Sing viscondeInstatiated; 
+    
     public delegate void EnabledMovPlayeHandle(bool actived);
     public static event EnabledMovPlayeHandle enableMovPlayer;
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (viscondeInstatiated)
+        if (viscondeInstatiated == null)
+        {
+            viscondeInstatiated = this;
+        }
+        else if(viscondeInstatiated != this)
         {
             Destroy(gameObject);
-            return;
         }
+        DontDestroyOnLoad(gameObject);
 
-        viscondeInstatiated = true;
-        
         viscondeAnim = GetComponent<Animator>();
     }
 
@@ -39,14 +41,12 @@ public class Sing : MonoBehaviour
     {
         textComponete.text = String.Empty;
         dialogBox.SetActive(false);
-        
-   
     }
     
     void StartDialogue()
     {
         textComponete.text = String.Empty;
-        indexs.letterIndex = 0;
+        letterIndex = 0;
         StartCoroutine(typeLine());
     }
 
@@ -57,18 +57,18 @@ public class Sing : MonoBehaviour
             NextLine();
         }
         
-        Debug.Log("|index "+indexs.index + " |letter index "+indexs.letterIndex + " |Position index "+indexs.positionIndex);
-
-        transform.position = positions[indexs.positionIndex].position;
+        transform.position = positions[0].position;
+        
+        // dialogBox = GameObject.FindGameObjectWithTag("Dialog");
     }
 
 
-    void ChangePositionVisconde()
-    {
-        indexs.positionIndex++;
-        if (indexs.positionIndex > positions.Count -1)
-            indexs.positionIndex = 0;
-    }
+    // void ChangePositionVisconde()
+    // {
+    //     indexs.positionIndex++;
+    //     if (indexs.positionIndex > positions.Count -1)
+    //         indexs.positionIndex = 0;
+    // }
 
     IEnumerator DelayNextLine()
     {
@@ -79,7 +79,7 @@ public class Sing : MonoBehaviour
      IEnumerator typeLine()
     {
 
-        textComponete.text += lines[indexs.index].lines[indexs.letterIndex];
+        textComponete.text += lines[0].lines[letterIndex];
         viscondeAnim.SetBool("Talking", true);
         viscondeAnim.SetBool("Smoke", false);
         yield return new WaitForSeconds(1f);
@@ -87,19 +87,20 @@ public class Sing : MonoBehaviour
 
     void NextLine()
     {
-        if (indexs.letterIndex < lines[indexs.index].lines.Count -1)
+        if (letterIndex < lines[0].lines.Count -1)
         {
-            indexs.letterIndex++;
+            letterIndex++;
             textComponete.text = String.Empty;
             StartCoroutine(typeLine());
         }
         else
         {
             dialogBox.SetActive(false);
-            indexs.index++;
-            if (indexs.index > lines.Count)
-                indexs.index = 0 ;
             
+            // if (lines == null)
+            //     indexs.index = 0 ;
+            
+
             viscondeAnim.SetBool("Talking", false);
             viscondeAnim.SetBool("Smoke", true);
 
@@ -108,6 +109,13 @@ public class Sing : MonoBehaviour
                gameObject.SetActive(false); 
             }
         }
+    }
+
+
+    void removPositionsAndLines()
+    {
+        lines.RemoveAt(0);
+        positions.RemoveAt(0);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -123,10 +131,11 @@ public class Sing : MonoBehaviour
     
     void OnTriggerExit2D(Collider2D other)
     {
+        
         if (other.gameObject.CompareTag("Player"))
         {
             playerCollider = false;
-            indexs.letterIndex = 0;
+            letterIndex = 0;
             dialogBox.SetActive(false);
             viscondeAnim.SetBool("Talking", false);
             viscondeAnim.SetBool("Smoke", true);

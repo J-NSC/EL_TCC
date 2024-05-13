@@ -28,6 +28,9 @@ public class HUDManager : MonoBehaviour
     
     public delegate void ActivetedStickHandle(bool activeted);
     public static event ActivetedStickHandle activetedStick;
+    
+    [SerializeField] GameObject[] MenuButtons ;
+
 
     void OnEnable()
     {
@@ -100,6 +103,8 @@ public class HUDManager : MonoBehaviour
     {
         Debug.Log("fim de jogo");
         isGameOver = true;
+        MenuButtons[0].SetActive(false);
+        MenuButtons[1].SetActive(true);
         gameOverScreen.SetActive(true);
     }
 

@@ -6322,6 +6322,9 @@ MonoBehaviour:
   fadeImage: {fileID: 1600018477}
   fadeAnim: {fileID: 1600018476}
   targetScene: 
+  MenuButtons:
+  - {fileID: 1698927842}
+  - {fileID: 1698927841}
 --- !u!114 &1696007825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6343,6 +6346,9 @@ MonoBehaviour:
   scoreText: {fileID: 1072863713}
   ScoreGameOverText: {fileID: 0}
   gameOverScreen: {fileID: 1025815104}
+  MenuButtons:
+  - {fileID: 1698927842}
+  - {fileID: 1698927841}
 --- !u!114 &1696007826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6499,6 +6505,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -67.83
       objectReference: {fileID: 0}
+    - target: {fileID: 6137618132009215524, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1696007824}
+    - target: {fileID: 6137618132009215524, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6424896420040503004, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6544,6 +6558,16 @@ GameObject:
 --- !u!224 &1698927840 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1628100254311777966, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+  m_PrefabInstance: {fileID: 1698927838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1698927841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 235461132599762118, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+  m_PrefabInstance: {fileID: 1698927838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1698927842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8572984824736066115, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
   m_PrefabInstance: {fileID: 1698927838}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1817158507
@@ -6753,6 +6777,7 @@ MonoBehaviour:
   - {fileID: 26127286}
   currentQuestions: 0
   QuestionTxt: {fileID: 1333206839}
+  cucaSO: {fileID: 11400000, guid: 1f65cd07355e71b4a9bfa36e9ec0eb5c, type: 2}
   score: 0
 --- !u!4 &2021191567
 Transform:

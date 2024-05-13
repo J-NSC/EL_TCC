@@ -734,6 +734,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995202813}
   m_CullTransparentMesh: 1
+--- !u!1 &1097557980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 235461132599762118, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+  m_PrefabInstance: {fileID: 2074840148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571776543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1260,9 @@ MonoBehaviour:
   fadeImage: {fileID: 1923053251}
   fadeAnim: {fileID: 1923053250}
   targetScene: 
+  MenuButtons:
+  - {fileID: 1832025169}
+  - {fileID: 1097557980}
 --- !u!1 &1732683929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1460,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762704601}
   m_CullTransparentMesh: 1
+--- !u!1 &1832025169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8572984824736066115, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+  m_PrefabInstance: {fileID: 2074840148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1872620236
 GameObject:
   m_ObjectHideFlags: 0

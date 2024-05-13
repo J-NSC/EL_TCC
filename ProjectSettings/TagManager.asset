@@ -25,6 +25,7 @@ TagManager:
   - FallMap
   - SpwanerMov
   - Calderao
+  - Dialog
   layers:
   - Default
   - TransparentFX

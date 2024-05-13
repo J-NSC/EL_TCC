@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Character
   m_EditorClassIdentifier: 
   loadLevel: 0
-  SpwanPoint: {x: 1.9206454, y: 0.5089936, z: -0.08850031}
+  SpwanPoint: {x: 3.6804874, y: 0.50899947, z: -0.08850031}
   coins: 0
   points: 0
-  CountJump: 1
-  maxJump: 1
+  CountJump: 2
+  maxJump: 2
   powerUps:
   - name: Pulo Duplo
     actived: 1
