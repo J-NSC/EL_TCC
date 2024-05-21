@@ -8,6 +8,7 @@ public class QuestionManeger : MonoBehaviour
 {
 
     [SerializeField] GameObject QuestionArea;
+    [SerializeField] GameObject buttons;
     [SerializeField] GameObject hidenPlataform;
     [SerializeField] List<SOCucaGame> cucaSo;
     [SerializeField] QuizIndexSO quizIndex;
@@ -17,6 +18,7 @@ public class QuestionManeger : MonoBehaviour
     void Awake()
     {
         QuestionArea = GameObject.FindGameObjectWithTag("QuestionArea");
+        buttons = GameObject.FindGameObjectWithTag("QuestionButtons");
     }
 
     void OnEnable()
@@ -35,11 +37,17 @@ public class QuestionManeger : MonoBehaviour
     {
         hidenPlataform.SetActive(false);
         QuestionArea.SetActive(false);
+        buttons.SetActive(false);
+    }
+
+    void Update()
+    {
     }
 
     void onShowedQuestionArea()
     {
         QuestionArea.SetActive(false);
+        buttons.SetActive(false);
         hidenPlataform.SetActive(quizIndex.activedPlatform_1);
         if (quizIndex.activedPlatform_1)
         {
@@ -53,6 +61,7 @@ public class QuestionManeger : MonoBehaviour
         if (!cucaSo[index].correct)
         {
             QuestionArea.SetActive(actived);
+            buttons.SetActive(actived);
         }
 
     }

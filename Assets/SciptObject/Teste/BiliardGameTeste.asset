@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   questionName: Teste
-  question: "Em qual regi\xE3o est\xE1 localizado Santar\xE9m ? "
+  question: "Em qual regi\xE3o do Brasil est\xE1 localizado Santar\xE9m ? "
   answers:
   - Norte
   - Nordeste

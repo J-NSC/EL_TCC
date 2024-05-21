@@ -230,9 +230,8 @@ namespace Fungus
                     .setOnComplete(() =>
                     {
                         fadeAlpha = targetAlpha;
-                        var tempFadeActin = fadeAction;
-                        fadeAction = null;
-                        if (tempFadeActin != null) tempFadeActin();
+                        if (fadeAction != null) fadeAction();
+                        fadeTween = null;
                     });
             }
         }

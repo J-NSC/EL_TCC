@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 	public int cardCount = 2;
 	int movesCount;
 	bool isPause = false;
+	bool exitMemoryGame = false;
  
 
 	[Header("Jogo da Cuca")] 
@@ -87,7 +88,8 @@ public class GameManager : MonoBehaviour
 		if (cardCount <= 0)
 		{
 			TransitionState(endGameState);
-			gameOver?.Invoke();
+			exitMemoryGame = true;
+			
 			quizIndex.activedPlatform_2 = true;
 		}
 
@@ -95,6 +97,12 @@ public class GameManager : MonoBehaviour
 		{
 			isPause = !isPause;
 			pausedScreen?.Invoke(!isPause);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Escape) && exitMemoryGame)
+		{
+			gameOver?.Invoke();
+			exitMemoryGame = false;
 		}
 	}
 

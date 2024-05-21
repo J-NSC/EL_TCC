@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Stick : MonoBehaviour
 {
-    
     float horizontalInput;
     public int maxPower = 3;
     
@@ -30,7 +29,7 @@ public class Stick : MonoBehaviour
 
     public delegate void TrajectoryDrawHandle(Vector3 direction);
     public static event TrajectoryDrawHandle trajectoryLine;
-    
+
     void Awake()
     {
         trajectory = GetComponent<LineRenderer>();
@@ -82,7 +81,7 @@ public class Stick : MonoBehaviour
             power = Mathf.PingPong(Time.time * speed, maxPower);
             powerBar.SetPowerBar(power);
         }
-
+        
         if (Input.GetButtonUp("Jump"))
         {
             
@@ -122,4 +121,7 @@ public class Stick : MonoBehaviour
     {
         stick.SetActive(IsEnableStick);
     }
+    
+    
+  
 }

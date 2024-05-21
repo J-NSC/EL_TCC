@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MemoryGameTeste
   m_EditorClassIdentifier: 
   id: 1
-  questionName: "Qual \xE9 o ano de inaugura\xE7\xE3o do Elevador Lacerda em Salvador?"
-  question: "Onde fica localizado Alter do ch\xE3o ?"
+  questionName: "Inaugura\xE7\xE3o do elevador lacerda"
+  question: "Qual \xE9 o ano de inaugura\xE7\xE3o do Elevador Lacerda em Salvador?"
   answers:
   - 1825
   - 1901

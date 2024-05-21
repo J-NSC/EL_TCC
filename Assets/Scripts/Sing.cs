@@ -17,22 +17,27 @@ public class Sing : MonoBehaviour
     [SerializeField] IndexVIscondeSO indexs;
     public int letterIndex;
     
-    public Sing viscondeInstatiated; 
+    public Sing viscondeInstatiated;
+    public List<Sing> foundSings;
+
+    [SerializeField] int positionIndex;
     
     public delegate void EnabledMovPlayeHandle(bool actived);
     public static event EnabledMovPlayeHandle enableMovPlayer;
 
     void Awake()
     {
-        if (viscondeInstatiated == null)
-        {
-            viscondeInstatiated = this;
-        }
-        else if(viscondeInstatiated != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+
+        // if (viscondeInstatiated == null)
+        // {
+        //     viscondeInstatiated = this;
+        // }
+        // else
+        // {
+        //     Destroy(gameObject);
+        // }
+        //
+        // DontDestroyOnLoad(gameObject);
 
         viscondeAnim = GetComponent<Animator>();
     }
@@ -41,6 +46,13 @@ public class Sing : MonoBehaviour
     {
         textComponete.text = String.Empty;
         dialogBox.SetActive(false);
+        
+        Sing[] sing = FindObjectsOfType<Sing>();
+        
+        foreach (Sing obj in sing)
+        {
+            foundSings.Add(obj);
+        }
     }
     
     void StartDialogue()
@@ -52,31 +64,24 @@ public class Sing : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && playerCollider)
+      
+
+        
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return)) && playerCollider)
         {
             NextLine();
         }
         
-        transform.position = positions[0].position;
+        if (positions.Count == 0 )
+        {
+            Debug.Log("fim do dialogo");
+            gameObject.SetActive(false); 
+        }else
+            transform.position = positions[0].position;
         
-        // dialogBox = GameObject.FindGameObjectWithTag("Dialog");
     }
 
-
-    // void ChangePositionVisconde()
-    // {
-    //     indexs.positionIndex++;
-    //     if (indexs.positionIndex > positions.Count -1)
-    //         indexs.positionIndex = 0;
-    // }
-
-    IEnumerator DelayNextLine()
-    {
-        yield return new WaitForSeconds(1.0f);
-        NextLine();
-    }
-
-     IEnumerator typeLine()
+    IEnumerator typeLine()
     {
 
         textComponete.text += lines[0].lines[letterIndex];
@@ -97,17 +102,10 @@ public class Sing : MonoBehaviour
         {
             dialogBox.SetActive(false);
             
-            // if (lines == null)
-            //     indexs.index = 0 ;
-            
-
             viscondeAnim.SetBool("Talking", false);
             viscondeAnim.SetBool("Smoke", true);
 
-            if (positions.Count == 0 )
-            {
-               gameObject.SetActive(false); 
-            }
+        
         }
     }
 

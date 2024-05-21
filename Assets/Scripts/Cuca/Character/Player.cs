@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public Jumping jumping;
     public Runnig runnig;
     public StateMachine stateMachine;
+
+    public FloatValue currentHealth;
+    public Signal playerHealthSignal;
     
     public float dir;
     public float speed = 3f;
@@ -32,6 +35,10 @@ public class Player : MonoBehaviour
 
     bool alterMaxJumper = false;
 
+    [SerializeField] Vector2 sizeBox;
+    [SerializeField] GameObject feetPosition; 
+    
+
     [SerializeField] GameObject spwanPosition;
 
     public static bool playerInstatiated = false;
@@ -39,32 +46,11 @@ public class Player : MonoBehaviour
 
     bool isMovement = true; 
     SpriteRenderer cucaSprite;
-
-    void OnEnable()
-    {
-        PlayerCollider.playerEnteredToDoor += door =>
-        {
-            isDoor = door;
-        };
-        ScenesManager.InstantiededPlayer += () =>
-        {
-            transform.position = characteSO.SpwanPoint;
-        };
-
-        Sing.enableMovPlayer += OnDisableMoviment;
-
-    }
-
-    void OnDisableMoviment(bool actived)
-    {
-        isMovement = actived;
-        rig.velocity = Vector2.zero;
-        stateMachine.ChangeState(idle);
-    }
-
-
+    bool facingRight;
+    
     void Awake()
     {
+        feetPosition = transform.GetChild(1).gameObject;
         DontDestroyOnLoad(gameObject);
         if (playerInstatiated)
         {
@@ -89,7 +75,28 @@ public class Player : MonoBehaviour
         runnig = new Runnig(this);
         jumping = new Jumping(this);
         stateMachine.ChangeState(idle);
-        
+    }
+
+    void OnEnable()
+    {
+        PlayerCollider.playerEnteredToDoor += door =>
+        {
+            isDoor = door;
+        };
+        ScenesManager.InstantiededPlayer += () =>
+        {
+            transform.position = characteSO.SpwanPoint;
+        };
+
+        Sing.enableMovPlayer += OnDisableMoviment;
+
+    }
+
+    void OnDisableMoviment(bool actived)
+    {
+        isMovement = actived;
+        rig.velocity = Vector2.zero;
+        stateMachine.ChangeState(idle);
     }
 
     void Start()
@@ -99,7 +106,6 @@ public class Player : MonoBehaviour
     }
 
     void Update()
-    
     {
         inputCheck();
         changedAnimation?.Invoke(stateMachine.currentStateName, rig.velocity.y, hasJumpInput);
@@ -120,8 +126,12 @@ public class Player : MonoBehaviour
         }
         if (isMovement)
         {
-            Flip();
             stateMachine.Update();
+        }
+        
+        if(dir > 0 && !facingRight || dir < 0 && facingRight)
+        {
+            Flip();
         }
     }
 
@@ -135,7 +145,7 @@ public class Player : MonoBehaviour
     {
         dir = Input.GetAxisRaw("Horizontal");
         hasJumpInput = Input.GetButtonDown("Jump");
-        if (isDoor && Input.GetKeyDown(KeyCode.E))
+        if (isDoor && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)))
         {
             openDoor?.Invoke(isDoor);
             characteSO.SpwanPoint = transform.position;
@@ -149,21 +159,51 @@ public class Player : MonoBehaviour
         origin = transform.position;
         rayDirection = Vector2.down;
         maxDistance = 1f;
-
+        
         LayerMask groundLayer = GameManager.inst.GroundLayer;
 
+        
         if (Physics2D.Raycast(origin, rayDirection, maxDistance, groundLayer))
         {
             isGrounded = true;
             characteSO.CountJump = characteSO.maxJump;
         }
+
+        //
+        // isGrounded = Physics2D.OverlapBox(feetPosition.transform.position, sizeBox, 0, groundLayer);
+        // if (isGrounded)
+        // {
+        //     characteSO.CountJump = characteSO.maxJump;
+        // }
+
+    
     }
 
-    void Flip()
-    {
-        if (dir != 0) 
-        {
-            cucaSprite.flipX = dir < 0; 
-        }
+    // void Flip()
+    // {
+    //     if (dir != 0) 
+    //     {
+    //         cucaSprite.flipX = dir < 0; 
+    //     }
+    // }
+    
+    void Flip (){
+        facingRight = !facingRight;
+        transform.localScale = new Vector3(facingRight ? -1 : 1 , 1 , 1 );
     }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(feetPosition.transform.position, sizeBox);
+    }
+
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Enemy"))
+    //     {
+    //         currentHealth.RuntimeValue -= 1;
+    //         playerHealthSignal.Raise();
+    //     }
+    // }
 }

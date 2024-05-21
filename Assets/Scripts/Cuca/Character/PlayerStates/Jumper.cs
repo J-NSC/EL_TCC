@@ -21,9 +21,12 @@ public class Jumping : State
     public override void Exit()
     {
         base.Exit();
-        
     }
 
+    
+    /*
+     *  Verificar a condição de passagem de idle do jump 
+     */
     public override void Update()
     {
         base.Update();
@@ -32,7 +35,7 @@ public class Jumping : State
             hasJump = false;
         }
         
-        if (player.isGrounded && hasJump)
+        if (Mathf.Abs(player.rig.velocity.y) <= 0.01f && hasJump)
         {
             player.stateMachine.ChangeState(player.idle);
             hasJump = false;

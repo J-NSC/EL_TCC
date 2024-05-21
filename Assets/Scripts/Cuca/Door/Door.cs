@@ -10,6 +10,9 @@ public class Door : MonoBehaviour
     public  delegate void ChangedSceneHandle(int indexscene);
     public static event ChangedSceneHandle changedScene;
 
+    public delegate void SaveDataIndex();
+    public static event SaveDataIndex savaDataIndex;
+    
     void Awake()
     {
         doorAnim = GetComponent<Animator>();
@@ -33,7 +36,11 @@ public class Door : MonoBehaviour
 
     void endOpenDoorAnimation()
     {
-        // Debug.Log(signInfoSo.MinegameIndex);
         changedScene?.Invoke(signInfoSo.MinegameIndex);
+    }
+
+    void saveDataInJson()
+    {
+        savaDataIndex?.Invoke();
     }
 }

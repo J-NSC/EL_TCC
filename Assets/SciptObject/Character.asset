@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e09fbc9bc52b204bb6069c04b5ebe7c, type: 3}
   m_Name: Character
   m_EditorClassIdentifier: 
-  loadLevel: 0
-  SpwanPoint: {x: 3.6804874, y: 0.50899947, z: -0.08850031}
+  loadLevel: 1
+  SpwanPoint: {x: -16.1, y: -0.2, z: -0.08850031}
   coins: 0
   points: 0
   CountJump: 2

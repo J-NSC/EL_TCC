@@ -238,12 +238,9 @@ namespace Fungus
             get
             {
 #if UNITY_2018_1_OR_NEWER
-                if (tmpro != null && tmpro.textInfo != null && tmpro.textInfo.characterInfo != null)
+                if(tmpro != null)
                 {
-                    if (tmpro.maxVisibleCharacters < tmpro.textInfo.characterInfo.Length && tmpro.maxVisibleCharacters > 0)
-                    {
-                        return tmpro.textInfo.characterInfo[tmpro.maxVisibleCharacters - 1].character;
-                    }
+                    return tmpro.textInfo.characterInfo[tmpro.maxVisibleCharacters].character;
                 }
 #endif
                 return (char)0;
@@ -320,7 +317,6 @@ namespace Fungus
                 else if (tmpro != null)
                 {
                     tmpro.text = value;
-                    tmpro.ForceMeshUpdate();
                 }
 #endif
                 else if (textProperty != null)

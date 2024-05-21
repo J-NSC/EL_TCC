@@ -68,9 +68,16 @@ public class QuestionManagerBilliard : MonoBehaviour
             {
                 enabelDoubleJump?.Invoke( "Pulo Duplo",true);
             }
-            
-            gameOver?.Invoke();  
+
+            StartCoroutine(CallGameOver());
+
         }
+    }
+
+    IEnumerator CallGameOver()
+    {
+        yield return new WaitForSeconds(.2f);
+        gameOver?.Invoke();  
     }
 
     IEnumerator ValidedQuestionTime(bool msg)

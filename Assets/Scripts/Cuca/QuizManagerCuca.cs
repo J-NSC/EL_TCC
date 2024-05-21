@@ -14,6 +14,8 @@ public class QuizManagerCuca : MonoBehaviour
     public int currentQuestions;
     [SerializeField] QuizIndexSO quizIndex;
 
+    public int IndexQuestion;
+
     public TMP_Text QuestionTxt;
     
     public delegate void CorrectedQuestionHandle();
@@ -21,9 +23,10 @@ public class QuizManagerCuca : MonoBehaviour
 
     public delegate void GameOverHandler();
     public static event GameOverHandler gameOver;
-
+    
     void OnEnable()
     {
+        PlayerCollider.triggeredQuestionArea += Teste;
         // PlayerCollider.triggeredQuestionArea += (actived, name) =>
         // {
         //     Match match = Regex.Match(name, @"\d+");
@@ -33,11 +36,19 @@ public class QuizManagerCuca : MonoBehaviour
         //         indexQuestion =  int.Parse(indexNumber);
         //     }
         // };
+    }
+    
+    
 
+    void Teste(bool actived, string name)
+    {
+        IndexQuestion = int.Parse(Regex.Match(name, @"\d+").Value);
+        Debug.Log(IndexQuestion);
     }
 
     void OnDisable()
     {
+        PlayerCollider.triggeredQuestionArea -= Teste;
     }
 
     void Start()
@@ -47,17 +58,15 @@ public class QuizManagerCuca : MonoBehaviour
 
     void Update()
     {
-        
+        GenerateQuestion();
     }
-
 
     public void Correct()
     {
         //questão certa
-        QnA[quizIndex.index].correct = true;
-        if (quizIndex.index == 0)
+        QnA[IndexQuestion].correct = true;
+        if (IndexQuestion == 0)
             quizIndex.activedPlatform_1 = true;
-        quizIndex.index++;
         GenerateQuestion();
         correctQuestion?.Invoke();
     }
@@ -74,9 +83,9 @@ public class QuizManagerCuca : MonoBehaviour
         for (int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswersCuca>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[quizIndex.index].answers[i];
+            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[IndexQuestion].answers[i];
         
-            if (QnA[quizIndex.index].correctAnswer == i)
+            if (QnA[IndexQuestion].correctAnswer == i)
             {
                 options[i].GetComponent<AnswersCuca>().isCorrect = true;
             }
@@ -85,9 +94,9 @@ public class QuizManagerCuca : MonoBehaviour
 
     void GenerateQuestion()
     {
-        if (QnA.Count > 0 && quizIndex.index <= 1 )
+        if (QnA.Count > 0 && IndexQuestion <= 1)
         {
-            QuestionTxt.text = QnA[quizIndex.index].question;
+            QuestionTxt.text = QnA[IndexQuestion].question;
             SetAnswers();  
         }
         else

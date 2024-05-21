@@ -35,6 +35,11 @@ public class QuizManage : MonoBehaviour
         scoreSend?.Invoke($"Acertos: {score.ToString()}/{totalQuestions}");
     }
 
+    void Update()
+    {
+        Debug.Log(score+ "/ " +totalQuestions);
+    }
+
     public void Correct()
     {
         //questão certa
@@ -75,9 +80,14 @@ public class QuizManage : MonoBehaviour
         }
         else
         {
-            Debug.Log("TESTE");
             cucaSO.correct = true;  
-            gameOver?.Invoke();   
+            StartCoroutine(CallGameOver());
         }
+    }
+    
+    IEnumerator CallGameOver()
+    {
+        yield return new WaitForSeconds(.2f);
+        gameOver?.Invoke();  
     }
 }

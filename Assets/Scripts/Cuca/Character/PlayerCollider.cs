@@ -6,7 +6,10 @@ using UnityEngine;
 public class PlayerCollider : MonoBehaviour
 {
 
+    Player player;
+
     
+
     public delegate void TriggeredQuestionAreaHandler(bool actived, string name);
     public static event TriggeredQuestionAreaHandler triggeredQuestionArea;
 
@@ -30,6 +33,11 @@ public class PlayerCollider : MonoBehaviour
 
     public delegate void StartAnimationCauldronHandle();
     public static event StartAnimationCauldronHandle startAnimationCauldron;
+    
+    void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -51,11 +59,6 @@ public class PlayerCollider : MonoBehaviour
         {
             plateShowed?.Invoke(true);    
         }
-        
-        if (other.gameObject.CompareTag("Platforme"))
-        {
-            changedLayer?.Invoke("Plataform");
-        }
 
         if (other.gameObject.CompareTag("MiniGameHouse"))
         {
@@ -76,13 +79,15 @@ public class PlayerCollider : MonoBehaviour
         {
            startAnimationCauldron?.Invoke();
         }
+        
+        
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("QuestionCollider"))
         {
-            triggeredQuestionArea?.Invoke(true,other.gameObject.name);
+            triggeredQuestionArea?.Invoke(false,other.gameObject.name);
         }
         if (other.gameObject.CompareTag("Door"))
         {
@@ -94,20 +99,14 @@ public class PlayerCollider : MonoBehaviour
             plateShowed?.Invoke(false);
         }
         
-        if (other.gameObject.CompareTag("Platforme"))
-        {
-            StartCoroutine(ChangedLayer());
-        }
-        
         if (other.gameObject.CompareTag("MiniGameHouse"))
         {
             sendNameHouse?.Invoke(other.name, false);
         }
-    }
+        // if (other.gameObject.CompareTag("Platforme"))
+        // {
+        //     player.transform.parent = null;
+        // }
 
-    IEnumerator ChangedLayer()
-    {
-        yield return new WaitForSeconds(.2f);
-        changedLayer?.Invoke("Ground");
     }
 }

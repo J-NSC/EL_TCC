@@ -84,17 +84,7 @@ namespace Fungus.EditorUtils
             var saveReturnValueProp = objTarget.FindProperty("saveReturnValue");
             var returnValueKeyProp = objTarget.FindProperty("returnValueVariableKey");
 
-            var t = ReflectionHelper.GetType(component);
-            Component objComponent = null;
-            if (t != null)
-            {
-                objComponent = gameObject.GetComponent(t);
-            }
-            else
-            {
-                Debug.LogError("InvokeMethod command has attempted to locate a type that cannot be found: " + component);
-            }
-
+            var objComponent = gameObject.GetComponent(ReflectionHelper.GetType(component));
             var bindingFlags = BindingFlags.Default | BindingFlags.Public | BindingFlags.Instance;
 
             if (!showInheritedProp.boolValue)

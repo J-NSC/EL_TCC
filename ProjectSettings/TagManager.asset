@@ -26,6 +26,8 @@ TagManager:
   - SpwanerMov
   - Calderao
   - Dialog
+  - QuestionButtons
+  - HeadPos
   layers:
   - Default
   - TransparentFX
@@ -34,7 +36,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Plataform
+  - 
   - 
   - 
   - 
