@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f27b5a78e74904580a113584bda371, type: 3}
   m_Name: Heart
   m_EditorClassIdentifier: 
-  listeners: []
+  listeners:
+  - {fileID: 0}

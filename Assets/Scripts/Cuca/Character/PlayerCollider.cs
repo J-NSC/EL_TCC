@@ -79,8 +79,11 @@ public class PlayerCollider : MonoBehaviour
         {
            startAnimationCauldron?.Invoke();
         }
-        
-        
+
+        if (other.gameObject.CompareTag("Platforme"))
+        {
+            transform.parent = other.transform;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -103,10 +106,10 @@ public class PlayerCollider : MonoBehaviour
         {
             sendNameHouse?.Invoke(other.name, false);
         }
-        // if (other.gameObject.CompareTag("Platforme"))
-        // {
-        //     player.transform.parent = null;
-        // }
+        if (other.gameObject.CompareTag("Platforme"))
+        {
+            player.transform.parent = null;
+        }
 
     }
 }

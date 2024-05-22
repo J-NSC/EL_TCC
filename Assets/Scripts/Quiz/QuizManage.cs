@@ -80,7 +80,10 @@ public class QuizManage : MonoBehaviour
         }
         else
         {
-            cucaSO.correct = true;  
+            if (score == totalQuestions)
+            {
+                cucaSO.correct = true;  
+            }
             StartCoroutine(CallGameOver());
         }
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CucaQuestion", menuName = "CucaGame/ViscondeIndex")]
 public class IndexVIscondeSO : ScriptableObject
 {
-    public int letterIndex;
-    public int index;
-    public int positionIndex;
+    public int levelLoad;
+    
 }

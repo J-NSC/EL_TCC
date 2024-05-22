@@ -1525,12 +1525,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionText: {fileID: 847183937}
+  screen: {fileID: 1559700858}
+  emojiFeedBack: {fileID: 641601872}
+  ButtonFeedBackImage: {fileID: 1222411494}
+  textFeedBack: {fileID: 2133393599}
+  textButtoFeedBack: {fileID: 994694859}
+  buttonFeedBack:
+  - "Proxima Quest\xE3o"
+  - Tente Novamente
+  buttonFeedBackSprite:
+  - {fileID: 21300000, guid: 779b95c4bc6a9534299af022ce6c4d5c, type: 3}
+  - {fileID: 21300000, guid: d7b4d635d5ebc2a4c967aed03f5c932c, type: 3}
   emoji:
   - {fileID: 21300000, guid: c495297ceb5afc4458117510311dcd6d, type: 3}
   - {fileID: 21300000, guid: 8fd82ee121ea8cc4fa355d93b37d03d3, type: 3}
-  screen: {fileID: 1559700858}
-  emojiFeedBack: {fileID: 641601872}
-  textFeedBack: {fileID: 2133393599}
   messageFeedBack:
   - "Parabens voc\xEAs acertou! Vamos para a proxima quest\xE3o"
   - "Voce se esqueceu em qual regi\xE3o esse estado fica? Calma vamos tentar outro"
@@ -7796,6 +7804,30 @@ PrefabInstance:
     - target: {fileID: 2420579195191909951, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
       propertyPath: m_Name
       value: CucaHud
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703385702030983113, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703385702030983113, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703385702030983113, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703385702030983113, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703385702030983113, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703385702030983113, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7960391108501195222, guid: 854dbd830bbde9e419f934fe87611405, type: 3}
       propertyPath: m_Pivot.x

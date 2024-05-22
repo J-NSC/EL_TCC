@@ -34,6 +34,10 @@ public class QuestionManagerBilliard : MonoBehaviour
         SendScoreBilliard?.Invoke($"Acertos:{correctQuestion}/{CountQuestion}");
     }
 
+    void Update()
+    {
+        SendScoreBilliard?.Invoke($"Questoes Corretas:{correctQuestion}/{CountQuestion}");
+    }
 
     public void OnQuestChecked(string msg)
     {
@@ -41,13 +45,12 @@ public class QuestionManagerBilliard : MonoBehaviour
         {
             correctQuestion++;
             StartCoroutine(ValidedQuestionTime(true));
+            QnB.RemoveAt(currentQuestion);
+            setRandonQuestion();
         }else
             StartCoroutine(ValidedQuestionTime(false));
         
-        SendScoreBilliard?.Invoke($"Questoes Corretas:{correctQuestion}/{CountQuestion}");
 
-        QnB.RemoveAt(currentQuestion);
-        setRandonQuestion();
     }
     
 

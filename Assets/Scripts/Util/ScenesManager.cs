@@ -29,14 +29,11 @@ public class ScenesManager : MonoBehaviour
         fadeImage = Fade.GetComponent<Image>();
     }
 
-
     void OnEnable()
     {
-        
         Door.changedScene += Load;
         GameManager.pausedScreen += PauseGame;
         SceneManager.sceneLoaded += OnSceneLoad;
-
     }
 
     void OnDisable()
@@ -50,8 +47,6 @@ public class ScenesManager : MonoBehaviour
     {
         Menu.SetActive(false);
     }
-
-   
 
     public void Load(int Indexscene)
     {
@@ -72,7 +67,6 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-
     IEnumerator fading(int Indexscene)
     {
         fadeAnim.SetBool("Fade", true);
@@ -81,7 +75,6 @@ public class ScenesManager : MonoBehaviour
         
         SceneManager.LoadScene(Indexscene);
     }
-    
 
     public void PauseGame(bool isPaused)
     {

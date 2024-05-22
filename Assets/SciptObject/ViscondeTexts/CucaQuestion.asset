@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5fc4ff1b12ac13408cb466d59b79f6a, type: 3}
   m_Name: CucaQuestion
   m_EditorClassIdentifier: 
-  letterIndex: 0
-  index: 0
-  positionIndex: 0
+  levelLoad: 0

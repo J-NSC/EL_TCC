@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    
+    public delegate void EnemyIsDeathedHandle(bool death);
+    public static event EnemyIsDeathedHandle enemyIsDeath;
+    
     [SerializeField] List<Transform> points;
     [SerializeField] int nexId = 0 ;
     [SerializeField] int idChangeValue = 1; 
@@ -13,7 +18,24 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator animEnemy;
 
     [SerializeField] AudioSource deathAudio;
+    public bool enemyDeath = false;
 
+
+    void Awake()
+    {
+        animEnemy = GetComponent<Animator>();
+    }
+
+    void OnEnable()
+    {
+        KnockBack.deathEnemy += AnimDeath;
+        
+    }
+
+    void OnDisable()
+    {
+        KnockBack.deathEnemy -= AnimDeath;
+    }
 
 
     void Reset() {
@@ -52,7 +74,6 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate() {
         MoveToNextPoint();
-        
     }
 
     void MoveToNextPoint(){
@@ -75,20 +96,18 @@ public class Enemy : MonoBehaviour
             }
 
             nexId += idChangeValue;
-
-             
         }
-        
-         
     }
 
     public void AnimDeath(){
         speed = 0;
-        deathAudio.Play();
-        animEnemy.SetTrigger("death");
+        // deathAudio.Play();
+        enemyDeath = true;
+        animEnemy.SetTrigger("Death");
     }
 
-    public void death (){
+    public void death ()
+    {
         Destroy(this.gameObject);
     }
 }

@@ -7,20 +7,37 @@ public class Player : MonoBehaviour
 {
     [SerializeField] public CharacterStatisticSO characteSO;
     
+    public static bool playerInstatiated = false;
+
+    
     public delegate void  ChangedAnimationHandle(string state, float speed, bool hasJumpInput);
     public static event ChangedAnimationHandle changedAnimation;
 
     public delegate void OpenedDoorHandle(bool isOpen);
     public static event OpenedDoorHandle openDoor;
     
+    
+    public delegate Vector3 LoadedPositionHandle();
+    public static event LoadedPositionHandle loadPosition;
+
+    public delegate void SetPositionPlayerHandle(Vector3 pos);
+    public static event SetPositionPlayerHandle setPosition;
+    
     public Rigidbody2D rig;
     public Idle idle;
     public Jumping jumping;
     public Runnig runnig;
+    public Stagger stagger;
     public StateMachine stateMachine;
 
     public FloatValue currentHealth;
     public Signal playerHealthSignal;
+    
+    [SerializeField] Vector2 sizeBox;
+    [SerializeField] GameObject feetPosition; 
+    [SerializeField] GameObject spwanPosition;
+    public SpriteRenderer cucaSprite;
+
     
     public float dir;
     public float speed = 3f;
@@ -35,38 +52,16 @@ public class Player : MonoBehaviour
 
     bool alterMaxJumper = false;
 
-    [SerializeField] Vector2 sizeBox;
-    [SerializeField] GameObject feetPosition; 
-    
 
-    [SerializeField] GameObject spwanPosition;
-
-    public static bool playerInstatiated = false;
     [SerializeField] bool isDoor = false;
 
     bool isMovement = true; 
-    SpriteRenderer cucaSprite;
-    bool facingRight;
+    [SerializeField] bool facingRight = true;
     
     void Awake()
     {
         feetPosition = transform.GetChild(1).gameObject;
-        DontDestroyOnLoad(gameObject);
-        if (playerInstatiated)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        
-        if (characteSO.loadLevel == 0)
-        {
-            characteSO.SpwanPoint = spwanPosition.transform.position;
-            characteSO.loadLevel++;
-        }
 
-
-        playerInstatiated = true;
-        
         rig = GetComponent<Rigidbody2D>();
         stateMachine = new StateMachine();
         cucaSprite = GetComponentInChildren<SpriteRenderer>();
@@ -74,6 +69,7 @@ public class Player : MonoBehaviour
         idle = new Idle(this);
         runnig = new Runnig(this);
         jumping = new Jumping(this);
+        stagger = new Stagger(this);
         stateMachine.ChangeState(idle);
     }
 
@@ -83,14 +79,22 @@ public class Player : MonoBehaviour
         {
             isDoor = door;
         };
-        ScenesManager.InstantiededPlayer += () =>
-        {
-            transform.position = characteSO.SpwanPoint;
-        };
+        ScenesManager.InstantiededPlayer += OnLoadPositionPlayer;
+        
 
         Sing.enableMovPlayer += OnDisableMoviment;
 
     }
+
+    void OnDisable()
+    {
+        ScenesManager.InstantiededPlayer -= OnLoadPositionPlayer;
+
+        Sing.enableMovPlayer -= OnDisableMoviment;
+
+    }
+
+
 
     void OnDisableMoviment(bool actived)
     {
@@ -101,6 +105,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        facingRight = true;
         characteSO.maxJump = 1;
         characteSO.CountJump = characteSO.maxJump;
     }
@@ -109,7 +114,13 @@ public class Player : MonoBehaviour
     {
         inputCheck();
         changedAnimation?.Invoke(stateMachine.currentStateName, rig.velocity.y, hasJumpInput);
-
+        
+        if (characteSO.loadLevel == 0)
+        {
+            setPosition?.Invoke(spwanPosition.transform.position);
+            characteSO.loadLevel++;
+        }
+        
         origin = transform.position;
         maxDistance = 1;
         DetectGround();
@@ -148,7 +159,7 @@ public class Player : MonoBehaviour
         if (isDoor && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)))
         {
             openDoor?.Invoke(isDoor);
-            characteSO.SpwanPoint = transform.position;
+            setPosition?.Invoke(transform.position);
         }else if(!isDoor) openDoor?.Invoke(false);
     }
 
@@ -168,24 +179,7 @@ public class Player : MonoBehaviour
             isGrounded = true;
             characteSO.CountJump = characteSO.maxJump;
         }
-
-        //
-        // isGrounded = Physics2D.OverlapBox(feetPosition.transform.position, sizeBox, 0, groundLayer);
-        // if (isGrounded)
-        // {
-        //     characteSO.CountJump = characteSO.maxJump;
-        // }
-
-    
     }
-
-    // void Flip()
-    // {
-    //     if (dir != 0) 
-    //     {
-    //         cucaSprite.flipX = dir < 0; 
-    //     }
-    // }
     
     void Flip (){
         facingRight = !facingRight;
@@ -198,12 +192,41 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireCube(feetPosition.transform.position, sizeBox);
     }
 
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Enemy"))
-    //     {
-    //         currentHealth.RuntimeValue -= 1;
-    //         playerHealthSignal.Raise();
-    //     }
-    // }
+    public void Knock(float knockTime, float damage)
+    {
+        
+        if (stateMachine.currentStateName != "Stagger")
+        {
+            stateMachine.ChangeState(stagger);
+            currentHealth.RuntimeValue -= damage;
+            playerHealthSignal.Raise();
+            if (currentHealth.RuntimeValue >= 0)
+            {
+                StartCoroutine(KnockCO(knockTime));
+            }
+        }
+      
+    }
+
+    IEnumerator KnockCO( float knockTime)
+    {
+        if (rig != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            rig.velocity = Vector2.zero;
+        }
+    }
+    
+    void OnLoadPositionPlayer()
+    {
+       
+        if (loadPosition != null)
+        {
+            foreach (LoadedPositionHandle handle in loadPosition.GetInvocationList())
+            {
+                Vector3 aux = handle();
+                transform.position = aux;
+            }
+        } 
+    }
 }

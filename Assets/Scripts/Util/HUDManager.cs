@@ -11,15 +11,19 @@ public class HUDManager : MonoBehaviour
     [SerializeField] TMP_Text QuestionText;
 
     [Header("FeedBackSrcreen")] 
-    [SerializeField] Sprite[] emoji;
     [SerializeField] GameObject screen; 
     [SerializeField] Image emojiFeedBack;
+    [SerializeField] Image ButtonFeedBackImage;
     [SerializeField] TMP_Text textFeedBack;
+    [SerializeField] TMP_Text textButtoFeedBack;
+    
+    [SerializeField] string[] buttonFeedBack;
+    [SerializeField] Sprite[] buttonFeedBackSprite;
+    [SerializeField] Sprite[] emoji;
     [SerializeField] string[] messageFeedBack;
 
     [Header("Score")]
     [SerializeField] TMP_Text scoreText;
-    [SerializeField] TMP_Text ScoreGameOverText;
 
     [Header("GameOver")] 
     [SerializeField] GameObject gameOverScreen;
@@ -83,6 +87,8 @@ public class HUDManager : MonoBehaviour
             screen.SetActive(true);
             textFeedBack.text = msg ? messageFeedBack[0] : messageFeedBack[1];
             emojiFeedBack.sprite = msg ? emoji[0] : emoji[1];
+            textButtoFeedBack.text = msg ? buttonFeedBack[0] : buttonFeedBack[1];
+            ButtonFeedBackImage.sprite = msg ? buttonFeedBackSprite[0] : buttonFeedBackSprite[1];
         }
             
     }

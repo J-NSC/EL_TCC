@@ -36,12 +36,17 @@ public class QuestionManeger : MonoBehaviour
     void Start()
     {
         hidenPlataform.SetActive(false);
+        SkyPlatforrm.SetActive(false);
         QuestionArea.SetActive(false);
         buttons.SetActive(false);
     }
 
     void Update()
     {
+        if (quizIndex.activedPlatform_2)
+        {
+            SkyPlatforrm.SetActive(quizIndex.activedPlatform_2);
+        }
     }
 
     void onShowedQuestionArea()
@@ -49,10 +54,7 @@ public class QuestionManeger : MonoBehaviour
         QuestionArea.SetActive(false);
         buttons.SetActive(false);
         hidenPlataform.SetActive(quizIndex.activedPlatform_1);
-        if (quizIndex.activedPlatform_1)
-        {
-            SkyPlatforrm.SetActive(quizIndex.activedPlatform_2);
-        }
+     
     }
     void OnShowQuestion(bool actived, string name)
     {
