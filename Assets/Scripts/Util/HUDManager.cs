@@ -22,6 +22,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Sprite[] emoji;
     [SerializeField] string[] messageFeedBack;
 
+    [SerializeField] TMP_Text textMenu;
+
     [Header("Score")]
     [SerializeField] TMP_Text scoreText;
 
@@ -49,20 +51,20 @@ public class HUDManager : MonoBehaviour
         {
             scoreText.text = msg;
         };
-        
-        QuizManage.scoreSend += (msg) =>
-        {
-            scoreText.text = msg;
-        };
+
+        QuizManage.scoreSend += ScoreQuiz;
         
         QuestionManagerBilliard.validededQuestion += OnShowScreenFeedback;
     }
+
+ 
 
     void OnDisable()
     {
         QuizManage.gameOver -= GameOverScreen;
         QuestionManagerBilliard.gameOver -= GameOverScreen;
         GameManager.gameOver -= GameOverScreen;
+        QuizManage.scoreSend -= ScoreQuiz;
         QuestionManagerBilliard.validededQuestion -= OnShowScreenFeedback;
 
     }
@@ -107,10 +109,11 @@ public class HUDManager : MonoBehaviour
 
     void GameOverScreen()
     {
-        Debug.Log("fim de jogo");
         isGameOver = true;
         MenuButtons[0].SetActive(false);
         MenuButtons[1].SetActive(true);
+        MenuButtons[2].SetActive(false);
+        MenuButtons[3].SetActive(true);
         gameOverScreen.SetActive(true);
     }
 
@@ -118,5 +121,9 @@ public class HUDManager : MonoBehaviour
     {
         int levelIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(levelIndex);
+    }
+    void ScoreQuiz(string msg)
+    {
+        scoreText.text = msg;
     }
 }

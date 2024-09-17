@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef6c521417add84999cf3c3528aacd0, type: 3}
   m_Name: "Len\xE7\xF3is Maranhenses 1"
   m_EditorClassIdentifier: 
-  nameCard: Lencois Maranhenses 1
-  pairName: Lencois Maranhenses
+  nameCard: "Len\xE7\xF3is Maranhenses 1"
+  pairName: "Len\xE7\xF3is Maranhenses "
   sprite: {fileID: 21300000, guid: 10c306047f3bab94c9a1961f3dbfaaff, type: 3}
   description: "Uma paisagem surreal de dunas intercaladas por lagoas de \xE1gua
     cristalina, os Len\xE7\xF3is Maranhenses s\xE3o uma maravilha natural \xFAnica.

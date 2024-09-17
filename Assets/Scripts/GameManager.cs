@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
 	public EndGameState endGameState;
 	public PauseGameState pauseGameState;
 
-	[SerializeField] GameObject infoPlate;
-
 	public GameObject[] selectedCards;
 
 	public int cardCount = 2;
@@ -40,6 +38,10 @@ public class GameManager : MonoBehaviour
 	[SerializeField] CharacterStatisticSO characterSo;
 	
 	[SerializeField] QuizIndexSO quizIndex;
+	
+	/*
+	 * Trocas as perguntas do quiz
+	 */
 
 	public int CardCount
 	{
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			isPause = !isPause;
-			pausedScreen?.Invoke(!isPause);
+			pausedScreen?.Invoke(isPause);
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Escape) && exitMemoryGame)

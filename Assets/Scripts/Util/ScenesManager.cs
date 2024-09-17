@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,16 +11,20 @@ public class ScenesManager : MonoBehaviour
     public delegate void InstantiededPlayerInPointHandler();
     public static event InstantiededPlayerInPointHandler InstantiededPlayer;
     
-    public delegate void ResededPlayerSpwanerHandler();
-    public static event ResededPlayerSpwanerHandler resededPlayerSpwaner;
-    
+    public delegate void ResetPrefabsDataHandler();
+    public static event ResetPrefabsDataHandler resetPrefab;
+
     [SerializeField] GameObject Menu;
     [SerializeField] GameObject Fade;
     [SerializeField] Image fadeImage;
     [SerializeField] Animator fadeAnim;
     [SerializeField] List<int> targetScene;
+    [SerializeField] GameObject gameOverScreen;
+    [SerializeField] TMP_Text msgMenu;
 
     [SerializeField] GameObject[] MenuButtons ;
+
+    [SerializeField] bool isGameOver;
     
     bool isPaused = false;
     
@@ -34,6 +39,7 @@ public class ScenesManager : MonoBehaviour
         Door.changedScene += Load;
         GameManager.pausedScreen += PauseGame;
         SceneManager.sceneLoaded += OnSceneLoad;
+        Player.gameOver += GameOverCuca;
     }
 
     void OnDisable()
@@ -41,6 +47,7 @@ public class ScenesManager : MonoBehaviour
         Door.changedScene -= Load;
         GameManager.pausedScreen -= PauseGame;
         SceneManager.sceneLoaded -= OnSceneLoad;
+        Player.gameOver -= GameOverCuca;
     }
 
     void Start()
@@ -48,8 +55,25 @@ public class ScenesManager : MonoBehaviour
         Menu.SetActive(false);
     }
 
+    void Update()
+    {
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(false);
+        }
+
+        if (isGameOver)
+        {
+            gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
     public void Load(int Indexscene)
     {
+        if(SceneManager.GetActiveScene().name == "Menu"){
+            resetPrefab?.Invoke();
+        }
         StartCoroutine(fading(Indexscene));
     }
 
@@ -59,12 +83,16 @@ public class ScenesManager : MonoBehaviour
         {
             InstantiededPlayer?.Invoke();
         } 
+        
+        Time.timeScale = 1;
+        isGameOver = false;
     }
 
     public void ResetScene()
     {
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
+    
     }
 
     IEnumerator fading(int Indexscene)
@@ -81,8 +109,20 @@ public class ScenesManager : MonoBehaviour
         if (isPaused)
         {
             Time.timeScale = 0f;
-            MenuButtons[0].SetActive(true);
-            MenuButtons[1].SetActive(false);
+            msgMenu.text = "Pause";
+            if(SceneManager.GetActiveScene().buildIndex != 1 ){
+                MenuButtons[0].SetActive(true);
+                MenuButtons[1].SetActive(false);
+                MenuButtons[2].SetActive(false);
+                MenuButtons[3].SetActive(true);
+            }
+            else
+            {
+                MenuButtons[0].SetActive(true);
+                MenuButtons[1].SetActive(false);
+                MenuButtons[2].SetActive(true);
+                MenuButtons[3].SetActive(false);
+            }
             Menu.SetActive(true);    
         }
         else
@@ -92,9 +132,15 @@ public class ScenesManager : MonoBehaviour
             Menu.SetActive(false);
         }
     }
+
+    void GameOverCuca()
+    {
+        isGameOver = true;
+    }
     
     public void ExitGame()
     {
+        isGameOver = false;
         Application.Quit();
     }
 }

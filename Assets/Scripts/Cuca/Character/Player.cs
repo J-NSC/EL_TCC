@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     public delegate void SetPositionPlayerHandle(Vector3 pos);
     public static event SetPositionPlayerHandle setPosition;
     
+    public delegate void GameOverHandle();
+    public static event GameOverHandle gameOver;
+    
     public Rigidbody2D rig;
     public Idle idle;
     public Jumping jumping;
@@ -60,6 +63,13 @@ public class Player : MonoBehaviour
     
     void Awake()
     {
+        
+        if (characteSO.loadLevel == 0)
+        {
+            setPosition?.Invoke(spwanPosition.transform.position);
+            characteSO.loadLevel++;
+        }
+        
         feetPosition = transform.GetChild(1).gameObject;
 
         rig = GetComponent<Rigidbody2D>();
@@ -115,11 +125,7 @@ public class Player : MonoBehaviour
         inputCheck();
         changedAnimation?.Invoke(stateMachine.currentStateName, rig.velocity.y, hasJumpInput);
         
-        if (characteSO.loadLevel == 0)
-        {
-            setPosition?.Invoke(spwanPosition.transform.position);
-            characteSO.loadLevel++;
-        }
+
         
         origin = transform.position;
         maxDistance = 1;
@@ -143,6 +149,13 @@ public class Player : MonoBehaviour
         if(dir > 0 && !facingRight || dir < 0 && facingRight)
         {
             Flip();
+        }
+        
+        if(currentHealth.RuntimeValue <= 0 )
+        {
+            Debug.Log("game Over");
+            currentHealth.RuntimeValue = currentHealth.initialValue;
+            gameOver?.Invoke();
         }
     }
 
@@ -204,6 +217,7 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine(KnockCO(knockTime));
             }
+         
         }
       
     }
@@ -222,10 +236,12 @@ public class Player : MonoBehaviour
        
         if (loadPosition != null)
         {
-            foreach (LoadedPositionHandle handle in loadPosition.GetInvocationList())
-            {
-                Vector3 aux = handle();
-                transform.position = aux;
+            if(characteSO.loadLevel != 0){
+                foreach (LoadedPositionHandle handle in loadPosition.GetInvocationList())
+                {
+                    Vector3 aux = handle();
+                    transform.position = aux;
+                }
             }
         } 
     }

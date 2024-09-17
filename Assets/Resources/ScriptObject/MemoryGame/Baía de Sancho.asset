@@ -15,7 +15,6 @@ MonoBehaviour:
   nameCard: "Ba\xEDa de Sancho"
   pairName: "Ba\xEDa de Sancho 1"
   sprite: {fileID: 21300000, guid: 5a77c3682c96f044796ebb1a6778b975, type: 3}
-  description: "Eleita diversas vezes como uma das praias mais bonitas do mundo,
-    a Ba\xEDa de Sancho \xE9 parte do arquip\xE9lago de Fernando de Noronha. Caracterizada
-    por suas \xE1guas cristalinas, forma\xE7\xF5es rochosas impressionantes e rica
-    vida marinha, \xE9 um para\xEDso para os amantes do mergulho."
+  description: "A Ba\xEDa de Sancho, em Fernando de Noronha, \xE9 frequentemente
+    eleita uma das praias mais bonitas do mundo. Suas \xE1guas cristalinas, forma\xE7\xF5es
+    rochosas e rica vida marinha fazem dela um para\xEDso para mergulhadores."

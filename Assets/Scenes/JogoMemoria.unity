@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &58457757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5620444093451273240, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+  m_PrefabInstance: {fileID: 1064671714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &66481088
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +742,7 @@ GameObject:
   - component: {fileID: 657799052}
   - component: {fileID: 657799055}
   - component: {fileID: 657799056}
+  - component: {fileID: 657799057}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -835,9 +841,14 @@ MonoBehaviour:
   fadeImage: {fileID: 445636851}
   fadeAnim: {fileID: 445636850}
   targetScene: 01000000
+  gameOverScreen: {fileID: 0}
+  msgMenu: {fileID: 746011866}
   MenuButtons:
   - {fileID: 1064671717}
+  - {fileID: 58457757}
   - {fileID: 1064671716}
+  - {fileID: 1239273928}
+  isGameOver: 0
 --- !u!114 &657799056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,17 +862,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionText: {fileID: 0}
-  emoji: []
   screen: {fileID: 0}
   emojiFeedBack: {fileID: 0}
+  ButtonFeedBackImage: {fileID: 0}
   textFeedBack: {fileID: 0}
+  textButtoFeedBack: {fileID: 0}
+  buttonFeedBack: []
+  buttonFeedBackSprite: []
+  emoji: []
   messageFeedBack: []
+  textMenu: {fileID: 746011866}
   scoreText: {fileID: 0}
-  ScoreGameOverText: {fileID: 0}
   gameOverScreen: {fileID: 543767486}
   MenuButtons:
   - {fileID: 1064671717}
+  - {fileID: 58457757}
   - {fileID: 1064671716}
+  - {fileID: 1239273928}
+--- !u!114 &657799057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657799051}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3c6723dbeb8bd4ab664777075d5d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonTextAsset: {fileID: 4900000, guid: 7dd95d021603fe647b951d1fcb92f23d, type: 3}
 --- !u!1 &675432741
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +960,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &746011866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 227838312441766340, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+  m_PrefabInstance: {fileID: 1064671714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1064671714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1042,6 +1083,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1890224259668222682, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 657799055}
+    - target: {fileID: 1890224259668222682, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890224259668222682, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScenesManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808229046769174913, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808229046769174913, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808229046769174913, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808229046769174913, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6137618132009215524, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1059,6 +1128,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479215825668755330, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959759952729274825, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959759952729274825, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959759952729274825, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959759952729274825, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -1084,6 +1169,11 @@ GameObject:
 --- !u!1 &1064671717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8572984824736066115, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
+  m_PrefabInstance: {fileID: 1064671714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1239273928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 879719577340251245, guid: 17dd627ab0f4e22459bb9cbcb39ab1dd, type: 3}
   m_PrefabInstance: {fileID: 1064671714}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1308643207
@@ -1716,7 +1806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96271acb3145dd543a8fee8230db795e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoPlate: {fileID: 0}
   selectedCards: []
   cardCount: 0
   GroundLayer:

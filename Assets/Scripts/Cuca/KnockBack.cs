@@ -51,8 +51,8 @@ public class KnockBack : MonoBehaviour
             if(player.stateMachine.currentStateName != "Stagger" && !enemyDeath)
             {
                 Vector2 knockBackDir = (player.rig.position.x > other.transform.position.x)
-                    ? new Vector2(.5f, 0.5f)
-                    : new Vector2(-.5f, 0.5f);
+                    ? new Vector2(1.5f, 0.5f)
+                    : new Vector2(-1.5f, 0.5f);
                 player.rig.AddForce(knockBackDir.normalized * KnockBackForce, ForceMode2D.Impulse);
                 player.Knock(KnockTime, damage);
             }

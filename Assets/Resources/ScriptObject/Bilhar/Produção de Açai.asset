@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: "Produ\xE7\xE3o de A\xE7ai"
   m_EditorClassIdentifier: 
   questionName: "Produ\xE7\xE3o de A\xE7ai"
-  question: "Onde est\xE1 localizado a maior o estado que mais produz a\xE7ai do
-    Brasil"
+  question: "Onde est\xE1 localizado o estado que mais produz a\xE7a\xED no Brasil?"
   correctAnswer: Norte

@@ -1,0 +1,119 @@
+[33mcommit 6f7d5e0272f351f17a84e06400192af1f76d5e31[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Wed May 22 14:48:36 2024 -0300
+
+    Correção de bugs
+
+[33mcommit 54d52778a7890d2dbc3124a9f180859d29fad74c[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Mon May 20 21:19:26 2024 -0300
+
+    KnockBack and KnockUp
+
+[33mcommit a72500af4a77da20a44229af3c69a7d1e2097b30[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Sun May 12 21:13:29 2024 -0300
+
+    test'
+
+[33mcommit 369e84d0102ab1d983cb536b068a475f3373804d[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Fri May 10 17:44:14 2024 -0300
+
+    Calderão
+
+[33mcommit 29256e112e049f46e690e0361796d999c031c72c[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Fri May 10 17:20:09 2024 -0300
+
+    Finalização do cuca Adventure
+
+[33mcommit 99acb552a25cfc669a9df7fff5577469e1160319[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Fri May 10 16:06:57 2024 -0300
+
+    Correção no menu de game over do jogo da memoria
+
+[33mcommit 51f78e28538b2f9294aff010f5bcbfe2c302acf9[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Fri May 10 15:31:12 2024 -0300
+
+    Correção na descrição do jogo da memoria
+
+[33mcommit a2e2a5bae19fa4701a73c2462fcda4ae44409949[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Fri May 10 14:57:54 2024 -0300
+
+    Correção no jogo da memoria e na busca do objeto jogador
+
+[33mcommit 22fd852d846bbd7c4c81e2b0784e311121aa23cf[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Thu May 9 18:45:27 2024 -0300
+
+    Visconde
+
+[33mcommit 0ecc811ff693535444382fa4804fbf1da760404c[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Tue May 7 23:00:11 2024 -0300
+
+    Carvna and sky platform
+
+[33mcommit 2ef47f500cdd840c141bbb48dc1942625bf1ec6e[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Tue Apr 30 08:59:36 2024 -0300
+
+    fase 1 Cuca Adventure
+
+[33mcommit 39ea4691d60411dd89e7b7253fe9490a554e88b3[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Sat Apr 6 11:33:33 2024 -0300
+
+    CucaStates
+
+[33mcommit ed54de84e562edeac5dbbf9d2290c9b33c88367d[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Sat Apr 6 11:32:19 2024 -0300
+
+    States Player
+
+[33mcommit ddc578db46d35fbede827a2c7220016e3f77e565[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Fri Apr 5 21:34:37 2024 -0300
+
+    PlayerStateMachine
+
+[33mcommit 3aac1442c371919cbac2263e5f6b5619008a7f71[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Sun Mar 10 01:55:40 2024 -0300
+
+    Hud Menu
+
+[33mcommit fcc4c25d1fba5d605d3dc0bab27f3e21deef9c30[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Sun Mar 3 19:22:02 2024 -0300
+
+    Jogo da memoria
+
+[33mcommit bff2480865b38c46462c441df76469d68511b7f1[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Fri Mar 1 05:59:23 2024 -0300
+
+    MemoryGame
+
+[33mcommit 2d7baa8f324e760ddbd40a58ea1aa49324c26855[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Sun Feb 25 22:00:25 2024 -0300
+
+    Screen Feedback
+
+[33mcommit d9994b6303977389b992f1f59644624bc7dde4ba[m
+Author: Joao Paulo <joao.pnc@discente.ufopa.edu.br>
+Date:   Sat Feb 24 20:25:35 2024 -0300
+
+    Linha de trajetoria
+
+[33mcommit 7b4b2787c7b2eead55e7549a87b53a694a760134[m
+Author: Joao <58124203+J-NSC@users.noreply.github.com>
+Date:   Sat Feb 24 19:40:41 2024 -0300
+
+    Initial commit

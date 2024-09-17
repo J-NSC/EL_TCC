@@ -32,7 +32,13 @@ public class Sing : MonoBehaviour
     {
         viscondeAnim = GetComponent<Animator>();
         
-     
+        if (indexViscondeSO.levelLoad == 0)
+        {
+            Debug.Log(indexViscondeSO.levelLoad);
+            ResetIndex();
+            indexViscondeSO.levelLoad++;
+        }
+        
     }
 
     void Start()
@@ -40,12 +46,16 @@ public class Sing : MonoBehaviour
         textComponete.text = String.Empty;
         dialogBox.SetActive(false);
 
-        foreach (LoadIndexPositionHandle handle in loadIndexPosition.GetInvocationList())
-        {
-            (int positions, int line) = handle();
-            positionIndex = positions;
-            lineIndex = line;
+        if(loadIndexPosition != null){
+            foreach (Delegate del in loadIndexPosition.GetInvocationList())
+            {
+                LoadIndexPositionHandle handle = (LoadIndexPositionHandle)del;
+                (int positions, int line) = handle();
+                positionIndex = positions;
+                lineIndex = line;
+            }
         }
+
     }
     
     void StartDialogue()
@@ -57,21 +67,14 @@ public class Sing : MonoBehaviour
 
     void Update()
     {
-        
-        if (indexViscondeSO.levelLoad == 0)
-        {
-            ResetIndex();
-            indexViscondeSO.levelLoad++;
-        }
-        
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return)) && playerCollider)
         {
             NextLine();
         }
         
-        if (positionIndex > positions.Count)
+        if (positionIndex > 3)
         {
-            gameObject.SetActive(false); 
+            Destroy(this.gameObject);
         }else
             transform.position = positions[positionIndex].position;
     }

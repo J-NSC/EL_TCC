@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: 477408abc724149429a6e5f1dde81def
+  - enabled: 1
+    path: Assets/Scenes/SaveScreen.unity
+    guid: 18fdab822bf6edb45a83a348b92ea073
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 05b654a600e6b3a4ebd05629ea4a78c7, type: 2}

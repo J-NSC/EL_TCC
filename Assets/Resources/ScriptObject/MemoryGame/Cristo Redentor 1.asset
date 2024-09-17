@@ -15,7 +15,6 @@ MonoBehaviour:
   nameCard: Cristo Redentor 1
   pairName: Cristo Redentor
   sprite: {fileID: 21300000, guid: b8493104dd33cc947a8f69cdf67aa02a, type: 3}
-  description: "Um \xEDcone internacionalmente reconhecido, o Cristo Redentor \xE9
-    uma colossal est\xE1tua de Jesus Cristo situada no topo do Morro do Corcovado.
-    Oferece uma vista panor\xE2mica espetacular da cidade do Rio de Janeiro, sendo
-    um dos pontos tur\xEDsticos mais emblem\xE1ticos do Brasil."
+  description: "O Cristo Redentor, no topo do Morro do Corcovado, \xE9 uma est\xE1tua
+    ic\xF4nica de Jesus Cristo. Oferece uma vista panor\xE2mica espetacular do Rio
+    de Janeiro e \xE9 um dos pontos tur\xEDsticos mais emblem\xE1ticos do Brasil."

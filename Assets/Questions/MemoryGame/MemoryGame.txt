@@ -3,49 +3,49 @@
     {
       "name": "Alter do Chao",
       "pairName":"Alter do Chao 1",
-      "description": "Conhecida como a 'Caribe da Amazônia', Alter do Chão é famosa por suas praias de água doce, especialmente a Praia do Amor. Situada às margens do Rio Tapajós, a região oferece uma beleza natural deslumbrante e é um destino popular para quem busca tranquilidade e contato com a natureza.",
+      "description": "Alter do Chão, o 'Caribe da Amazônia', é famosa por suas praias de água doce, como a Praia do Amor, no Rio Tapajós. É um destino popular pela sua beleza natural e tranquilidade.",
       "path": "Images/IMGMemoryGame/alter-do-chao"
     },
     {
       "name": "Alter do Chao 1",
       "pairName":"Alter do Chao",
-      "description": "Conhecida como a 'Caribe da Amazônia', Alter do Chão é famosa por suas praias de água doce, especialmente a Praia do Amor. Situada às margens do Rio Tapajós, a região oferece uma beleza natural deslumbrante e é um destino popular para quem busca tranquilidade e contato com a natureza.",
+      "description": "Alter do Chão, o 'Caribe da Amazônia', é famosa por suas praias de água doce, como a Praia do Amor, no Rio Tapajós. É um destino popular pela sua beleza natural e tranquilidade.",
       "path": "Images/IMGMemoryGame/alter-do-chao"
     },
     {
       "name": "Baía de Sancho",
       "pairName":"Baía de Sancho 1",
-      "description": "Eleita diversas vezes como uma das praias mais bonitas do mundo, a Baía de Sancho é parte do arquipélago de Fernando de Noronha. Caracterizada por suas águas cristalinas, formações rochosas impressionantes e rica vida marinha, é um paraíso para os amantes do mergulho.",
+      "description": "A Baía de Sancho, em Fernando de Noronha, é frequentemente eleita uma das praias mais bonitas do mundo. Suas águas cristalinas, formações rochosas e rica vida marinha fazem dela um paraíso para mergulhadores.",
       "path": "Images/IMGMemoryGame/baia-de-sancho"
     }, 
     {
       "name": "Baía de Sancho 1",
       "pairName":"Baía de Sancho",
-      "description": "Eleita diversas vezes como uma das praias mais bonitas do mundo, a Baía de Sancho é parte do arquipélago de Fernando de Noronha. Caracterizada por suas águas cristalinas, formações rochosas impressionantes e rica vida marinha, é um paraíso para os amantes do mergulho.",
+      "description": "A Baía de Sancho, em Fernando de Noronha, é frequentemente eleita uma das praias mais bonitas do mundo. Suas águas cristalinas, formações rochosas e rica vida marinha fazem dela um paraíso para mergulhadores.",
       "path": "Images/IMGMemoryGame/baia-de-sancho"
     },
     {
       "name": "Cristo Redentor",
       "pairName":"Cristo Redentor 1",
-      "description": "Um ícone internacionalmente reconhecido, o Cristo Redentor é uma colossal estátua de Jesus Cristo situada no topo do Morro do Corcovado. Oferece uma vista panorâmica espetacular da cidade do Rio de Janeiro, sendo um dos pontos turísticos mais emblemáticos do Brasil.",
+      "description": "O Cristo Redentor, no topo do Morro do Corcovado, é uma estátua icônica de Jesus Cristo. Oferece uma vista panorâmica espetacular do Rio de Janeiro e é um dos pontos turísticos mais emblemáticos do Brasil.",
       "path": "Images/IMGMemoryGame/cristo-redentor"
     },
     {
       "name": "Cristo Redentor 1",
       "pairName":"Cristo Redentor",
-      "description": "Um ícone internacionalmente reconhecido, o Cristo Redentor é uma colossal estátua de Jesus Cristo situada no topo do Morro do Corcovado. Oferece uma vista panorâmica espetacular da cidade do Rio de Janeiro, sendo um dos pontos turísticos mais emblemáticos do Brasil.",
+      "description": "O Cristo Redentor, no topo do Morro do Corcovado, é uma estátua icônica de Jesus Cristo. Oferece uma vista panorâmica espetacular do Rio de Janeiro e é um dos pontos turísticos mais emblemáticos do Brasil.",
       "path": "Images/IMGMemoryGame/cristo-redentor"
     },
     {
       "name": "Elevador Lacerda",
       "pairName":"Elevador Lacerda 1",
-      "description": "Inaugurado em 1873, o Elevador Lacerda é um marco histórico de Salvador, conectando a Cidade Baixa à Cidade Alta. Oferece vistas deslumbrantes da Baía de Todos os Santos e é uma atração imperdível para os visitantes que desejam explorar a rica história da cidade.",
+      "description": "Inaugurado em 1873, o Elevador Lacerda é um marco histórico de Salvador, conectando a Cidade Baixa à Cidade Alta. Oferece vistas deslumbrantes da Baía de Todos os Santos e é uma atração imperdível para os visitantes.",
       "path": "Images/IMGMemoryGame/elevador-lacerda"
     },
     {
       "name": "Elevador Lacerda 1",
       "pairName":"Elevador Lacerda",
-      "description": "Inaugurado em 1873, o Elevador Lacerda é um marco histórico de Salvador, conectando a Cidade Baixa à Cidade Alta. Oferece vistas deslumbrantes da Baía de Todos os Santos e é uma atração imperdível para os visitantes que desejam explorar a rica história da cidade.",
+      "description": "Inaugurado em 1873, o Elevador Lacerda é um marco histórico de Salvador, conectando a Cidade Baixa à Cidade Alta. Oferece vistas deslumbrantes da Baía de Todos os Santos e é uma atração imperdível para os visitantes.",
       "path": "Images/IMGMemoryGame/elevador-lacerda"
     },
     {

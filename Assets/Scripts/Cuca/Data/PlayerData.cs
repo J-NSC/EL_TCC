@@ -34,7 +34,7 @@ public class PlayerData : MonoBehaviour
     
     void SavePosition()
     {
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteKey([keyX,keyY,]);
         PlayerPrefs.SetFloat(keyX, currentPosition.x);
         PlayerPrefs.SetFloat(keyY, currentPosition.y);
         PlayerPrefs.SetFloat(keyZ, currentPosition.z);

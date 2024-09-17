@@ -19,7 +19,6 @@ public class QuizManage : MonoBehaviour
     public static event ScoreSendHandler scoreSend;
 
     public delegate void GameOverHandler();
-
     public static event GameOverHandler gameOver;
 
     [SerializeField] SOCucaGame cucaSO;
@@ -29,7 +28,6 @@ public class QuizManage : MonoBehaviour
 
     void Start()
     {
-        // QnA = new List<QuestionAndAnswers>(Resources.LoadAll<QuestionAndAnswers>("ScriptObject/Quiz"));
         totalQuestions = QnA.Count;
         GenerateQuestion();      
         scoreSend?.Invoke($"Acertos: {score.ToString()}/{totalQuestions}");
@@ -42,7 +40,6 @@ public class QuizManage : MonoBehaviour
 
     public void Correct()
     {
-        //questão certa
         score++;
         QnA.RemoveAt(currentQuestions);
         GenerateQuestion();
@@ -51,7 +48,6 @@ public class QuizManage : MonoBehaviour
 
     public void wrong()
     {
-        //questão errada 
         QnA.RemoveAt(currentQuestions);
         GenerateQuestion();
     }

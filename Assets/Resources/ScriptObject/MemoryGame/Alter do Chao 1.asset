@@ -15,7 +15,6 @@ MonoBehaviour:
   nameCard: Alter do Chao 1
   pairName: Alter do Chao
   sprite: {fileID: 21300000, guid: 3d10144b269fce843a0d242dba5db567, type: 3}
-  description: "Conhecida como a 'Caribe da Amaz\xF4nia', Alter do Ch\xE3o \xE9 famosa
-    por suas praias de \xE1gua doce, especialmente a Praia do Amor. Situada \xE0s
-    margens do Rio Tapaj\xF3s, a regi\xE3o oferece uma beleza natural deslumbrante
-    e \xE9 um destino popular para quem busca tranquilidade e contato com a natureza."
+  description: "Alter do Ch\xE3o, o 'Caribe da Amaz\xF4nia', \xE9 famosa por suas
+    praias de \xE1gua doce, como a Praia do Amor, no Rio Tapaj\xF3s. \xC9 um destino
+    popular pela sua beleza natural e tranquilidade."

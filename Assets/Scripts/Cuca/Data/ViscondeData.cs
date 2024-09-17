@@ -29,8 +29,9 @@ public class ViscondeData : MonoBehaviour
         
     }
 
-    (int, int) LoadIndexPosition()
+    public (int, int) LoadIndexPosition()
     {
+        Debug.Log($"Load data");
         return (PlayerPrefs.GetInt(KeyPos), PlayerPrefs.GetInt(KeyLine));
     }
 }
